@@ -1,0 +1,31 @@
+
+#include <malloc.h>
+
+#include "libft.h"
+
+char		*ft_strtrim(const char *str, const char *set)
+{
+	size_t	i;
+	size_t	j;
+	size_t	result_len;
+	char	*result;
+
+	i = 0;
+	while (ft_strchr(set, str[i]) != NULL)
+		i++;
+	j = ft_strlen(str) - 1;
+	while (ft_strchr(set, str[j]) != NULL)
+		j--;
+	result_len = ft_smax(i - j, 0);
+	result = malloc(sizeof(char) * (result_len + 1));
+	if (result == NULL)
+		return (NULL);
+	j = 0;
+	while (j < result_len)
+	{
+		result[j] = str[i + j];
+		j++;
+	}
+	result[result_len] = '\0';
+	return (result);
+}
