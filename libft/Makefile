@@ -27,7 +27,7 @@ SRCS		=	abs.c \
 				strlen.c
 OBJS		=	${SRCS:.c=.o}
 
-CC			=	gcc
+CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -f
