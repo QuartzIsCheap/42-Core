@@ -139,6 +139,18 @@ int			ft_strncmp(const char *lhs, const char *rhs, size_t count);
  */
 char		*ft_strchr(const char *str, int ch);
 /**
+ * Finds the first occurrence of ch in the given string, stopping at the first
+ * null-terminator or after scanning count characters. If the character was not
+ * found, returns NULL. Otherwise returns a pointer to the first occurrence in
+ * the string.
+ * @brief Finds the first occurrence of a character in a sized string.
+ * @param str A byte string of characters.
+ * @param ch A character to look for.
+ * @param count The maximum number of characters to scan.
+ * @return NULL if the character is not found, otherwise a pointer into str.
+ */
+char		*ft_strnchr(const char *str, int ch, size_t count);
+/**
  * Finds the last occurrence of ch in the given null-terminated string. If the
  * character is not present, returns NULL. Otherwise returns a pointer to the
  * character occurrence in the string.
