@@ -3,7 +3,7 @@ NAME		=	libft.a
 SRCS		=	ft_abs.c \
 				ft_atoi.c \
 				ft_atol.c \
-				ft_aloll.c \
+				ft_atoll.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_isalnum.c \
