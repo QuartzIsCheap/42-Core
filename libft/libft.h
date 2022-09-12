@@ -230,9 +230,9 @@ void		ft_striteri(char *str, void (*f)(size_t, char *));
 //! @brief Writes a char to a file descriptor.
 void		ft_putchar_fd(char c, int fd);
 //! @brief Writes a null-terminated string to a file descriptor.
-void		ft_putstr_fd(const char *c, int fd);
-//! @brief Writes a null-terminated string and a newline to a file descriptor.
-void		ft_putendl_fd(const char *c, int fd);
+void		ft_putstr_fd(const char *str, int fd);
+//! @brief Writes a null-terminated str and a newline to a file descriptor.
+void		ft_putendl_fd(const char *str, int fd);
 //! @brief Writes an integer to a file descriptor.
 void		ft_putnbr_fd(int n, int fd);
 //! @brief Writes an integer to a file descriptor.
