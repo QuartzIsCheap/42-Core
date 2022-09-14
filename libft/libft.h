@@ -232,13 +232,33 @@ void		ft_striteri(char *str, void (*f)(size_t, char *));
 
 //! @brief Writes a char to a file descriptor.
 void		ft_putchar_fd(char c, int fd);
+//! @brief Writes a char to a file descriptor. Returns the count of printed
+//! characters.
+size_t		ft_nputchar_fd(char c, int fd);
 //! @brief Writes a null-terminated string to a file descriptor.
 void		ft_putstr_fd(const char *str, int fd);
+//! @brief Writes a null-terminated string to a file descriptor. Returns the
+//! count of printed characters.
+size_t		ft_nputstr_fd(const char *str, int fd);
+//! @brief Writes a string of maximum length count to a file descriptor.
+void		ft_putstrn_fd(const char *str, size_t count, int fd);
+//! @brief Writes a string of maximum length count to a file descriptor.
+//! Returns the count of printed characters.
+size_t		ft_nputstrn_fd(const char *str, size_t count, int fd);
 //! @brief Writes a null-terminated str and a newline to a file descriptor.
 void		ft_putendl_fd(const char *str, int fd);
+//! @brief Writes a null-terminated str and a newline to a file descriptor.
+//! Returns the count of printed characters.
+size_t		ft_nputendl_fd(const char *str, int fd);
 //! @brief Writes an integer to a file descriptor.
 void		ft_putnbr_fd(int n, int fd);
+//! @brief Writes an integer to a file descriptor. Returns the count of printed
+//! characters.
+size_t		ft_nputnbr_fd(int n, int fd);
 //! @brief Writes an integer to a file descriptor.
 void		ft_putllnbr_fd(long long n, int fd);
+//! @brief Writes an integer to a file descriptor. Returns the count of printed
+//! characters.
+size_t		ft_nputllnbr_fd(long long n, int fd);
 
 #endif //LIBFT_H
