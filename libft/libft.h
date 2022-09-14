@@ -122,6 +122,9 @@ size_t		ft_strlcat(char *dest, const char *src, size_t size);
 
 //! @brief Counts the number of characters until the first null character.
 size_t		ft_strlen(const char *str);
+//! @brief Counts the number of characters until the first null character,
+//! stopping at count characters.
+size_t		ft_strnlen(const char *str, size_t count);
 //! @brief Returns an integer, the sign of which corresponding to the difference
 //! of the characters that differ in the strings.
 int			ft_strcmp(const char *lhs, const char *rhs);
