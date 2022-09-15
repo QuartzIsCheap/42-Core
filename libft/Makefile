@@ -56,6 +56,7 @@ SRCS		=	ft_abs.c \
 				ft_strnlen.c \
 				ft_strnstr.c \
 				ft_strrchr.c \
+				ft_strsnjoin.c \
 				ft_strstr.c \
 				ft_strtrim.c \
 				ft_substr.c \

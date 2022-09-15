@@ -227,6 +227,9 @@ char		*ft_substr(const char *str, size_t start, size_t len);
 //! strings s1 and s2, and fills it with their contents. Returns NULL if the
 //! allocation fails.
 char		*ft_strjoin(const char *s1, const char *s2);
+//! @brief Joins count null-terminated strings together into a single
+//! null-terminated string. Returns NULL if the allocation fails.
+char		*ft_strsnjoin(const char **strs, size_t count);
 
 //! @brief Allocates a copy of str with the characters in set removed from its
 //! beginning and its end.
