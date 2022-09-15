@@ -21,6 +21,8 @@ SRCS		=	ft_abs.c \
 				ft_isxdigit.c \
 				ft_itoa.c \
 				ft_lltoa.c \
+				ft_lltoa_base.c \
+				ft_log.c \
 				ft_max.c \
 				ft_memchr.c \
 				ft_memcmp.c \
@@ -39,7 +41,7 @@ SRCS		=	ft_abs.c \
 				ft_putllnbr_fd.c \
 				ft_putnbr_fd.c \
 				ft_putstr_fd.c \
-				ft_putstr_fd.c \
+				ft_putstrn_fd.c \
 				ft_split.c \
 				ft_strcat.c \
 				ft_strchr.c \

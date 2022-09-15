@@ -30,6 +30,10 @@ long		ft_labs(long n);
 //! LLONG_MIN.
 long long	ft_llabs(long long n);
 
+//! @brief Computes the base-10 logarithm of the given number. An input in
+//! [0, base-1] gives 0, etc. The value of base must be more than one.
+int ft_log(long long n, int base);
+
 //! @brief Checks if the given character is an upper-case letter.
 int			ft_isupper(int ch);
 //! @brief Checks if the given character is a lower-case letter.
@@ -74,6 +78,22 @@ int			ft_atoi(const char *str);
 long		ft_atol(const char *str);
 //! @brief Converts the char stream into an integer stored as a long long.
 long long	ft_atoll(const char *str);
+
+//! @brief Allocates a null-terminated string containing the base-10 sequence of
+//! the digits of n.
+char		*ft_itoa(int n);
+//! @brief Allocates a null-terminated string containing the base-10 sequence of
+//! the digits of n.
+char		*ft_lltoa(long long n);
+/**
+ * Allocates a string
+ * @brief Allocates a null-terminated string containing the representation of
+ * a number in a given base.
+ * @param n
+ * @param base
+ * @return
+ */
+char		*ft_lltoa_base(long long n, const char *base);
 
 //! @brief Copies the contents of src to dest, including the null terminator.
 char		*ft_strcpy(char *dest, const char *src);
@@ -216,13 +236,6 @@ char		*ft_strtrim(const char *str, const char *set);
 //! delimited by the character c and the edges of str. Returns NULL if the
 //! allocation fails.
 char		**ft_split(const char *str, char c);
-
-//! @brief Allocates a null-terminated string containing the base-10 sequence of
-//! the digits of n.
-char		*ft_itoa(int n);
-//! @brief Allocates a null-terminated string containing the base-10 sequence of
-//! the digits of n.
-char		*ft_lltoa(long long n);
 
 //! @brief Allocates and fills a null-terminated string containing the results
 //! of applying the passed function to the characters in str.
