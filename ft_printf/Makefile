@@ -1,7 +1,7 @@
 NAME		=	libftprintf.a
 
 SRCS		=	ft_printf.c \
-				code_handling.c \
+				printf_code_handling.c \
 				libft/ft_abs.c \
 				libft/ft_calloc.c \
 				libft/ft_lltoa_base.c \
@@ -16,7 +16,8 @@ SRCS		=	ft_printf.c \
 				libft/ft_strjoin.c \
 				libft/ft_strlen.c \
 				libft/ft_strndup.c \
-				libft/ft_strsnjoin.c
+				libft/ft_strsnjoin.c \
+				libft/ft_ulltoa_base.c
 OBJS		=	${SRCS:.c=.o}
 
 TEST		=	main.c
@@ -36,7 +37,7 @@ ${NAME}:		${OBJS}
 clean:
 				${RM} ${OBJS}
 fclean:			clean
-				${RM} ${NAME} ${NAME}_tests
+				${RM} ${NAME} ${NAME}_tests a.out
 
 re:				fclean all
 

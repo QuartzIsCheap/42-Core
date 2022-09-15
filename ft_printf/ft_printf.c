@@ -6,27 +6,7 @@
 
 #include "libft.h"
 
-char	*handle_char(char code, va_list args);
-char	*handle_pointer(void *p);
-
-char	*handle_code(char code, va_list args)
-{
-	if (code == '%' || code == 'c')
-		return (handle_char(code, args));
-	else if (code == 's')
-		return (ft_strdup(va_arg(args, const char *)));
-	else if (code == 'p')
-		return (handle_pointer(va_arg(args, void *)));
-	else if (code == 'd' || code == 'i')
-		return (ft_lltoa_base(va_arg(args, int), "0123456789"));
-	else if (code == 'u')
-		return (ft_lltoa_base(va_arg(args, unsigned int), "0123456789"));
-	else if (code == 'x')
-		return (ft_lltoa_base(va_arg(args, unsigned int), "0123456789abcdef"));
-	else if (code == 'X')
-		return (ft_lltoa_base(va_arg(args, unsigned int), "0123456789ABCDEF"));
-	return (0);
-}
+char	*handle_code(char code, va_list args);
 
 size_t	count_strs(const char *format_str)
 {
@@ -79,6 +59,18 @@ int	parse_strs(const char *format, va_list args, char **strs, size_t strs_count)
 	return (0);
 }
 
+static char	**make_strs(const char *format, size_t strs_count, va_list args)
+{
+	char	**strs;
+
+	strs = ft_calloc(strs_count, sizeof(char *));
+	if (strs == NULL)
+		return (NULL);
+	if (parse_strs(format, args, strs, strs_count) < 0)
+		return (free(strs), NULL);
+	return (strs);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	size_t	strs_count;
@@ -88,12 +80,10 @@ int	ft_printf(const char *format, ...)
 	int		result;
 
 	strs_count = count_strs(format);
-	strs = ft_calloc(strs_count, sizeof(char *));
+	va_start(args, format);
+	strs = make_strs(format, strs_count, args);
 	if (strs == NULL)
 		return (0);
-	va_start(args, format);
-	if (parse_strs(format, args, strs, strs_count) < 0)
-		return (free(strs), 0);
 	va_end(args);
 	formatted_str = ft_strsnjoin((const char **)strs, strs_count);
 	free_strs(strs, strs_count);
