@@ -329,4 +329,20 @@ void		ft_putnbr_fd(int n, int fd);
 //! @brief Writes an integer to a file descriptor.
 void		ft_putllnbr_fd(long long n, int fd);
 
+////////////////////////////////////////////////////////////////////////////////
+///                                                                          ///
+///                                                                          ///
+///                              The Holy Printf                             ///
+///                                                                          ///
+///                                                                          ///
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ *
+ * @param format
+ * @param ...
+ * @return
+ */
+int			ft_printf(const char *format, ...);
+
 #endif //LIBFT_H
