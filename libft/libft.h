@@ -4,6 +4,14 @@
 
 # include <stddef.h>
 
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                              Math Functions                                //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
 //! @brief Returns the smallest int.
 int			ft_min(int a, int b);
 //! @brief Returns the smallest size_t.
@@ -12,6 +20,7 @@ size_t		ft_smin(size_t a, size_t b);
 long		ft_lmin(long a, long b);
 //! @brief Returns the smallest long long.
 long long	ft_llmin(long long a, long long b);
+
 //! @brief Returns the largest int.
 int			ft_max(int a, int b);
 //! @brief Returns the largest size_t.
@@ -20,6 +29,7 @@ size_t		ft_smax(size_t a, size_t b);
 long		ft_lmax(long a, long b);
 //! @brief Returns the largest long long.
 long long	ft_llmax(long long a, long long b);
+
 //! @brief Returns the absolute value of an int. Returns INT_MAX if n is
 //! INT_MIN.
 int			ft_abs(int n);
@@ -32,7 +42,15 @@ long long	ft_llabs(long long n);
 
 //! @brief Computes the base-10 logarithm of the given number. An input in
 //! [0, base-1] gives 0, etc. The value of base must be more than one.
-int ft_log(long long n, int base);
+int			ft_log(long long n, int base);
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                              Char Functions                                //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Checks if the given character is an upper-case letter.
 int			ft_isupper(int ch);
@@ -72,6 +90,14 @@ int			ft_toupper(int ch);
 //! @brief Converts the character to lower-case if it is an upper-case letter.
 int			ft_tolower(int ch);
 
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                     String-Alpha Conversions Functions                     //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
 //! @brief Converts the char stream into an integer stored as an int.
 int			ft_atoi(const char *str);
 //! @brief Converts the char stream into an integer stored as a long.
@@ -94,6 +120,14 @@ char		*ft_lltoa(long long n);
  * @return
  */
 char		*ft_lltoa_base(long long n, const char *base);
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                            String Copy Functions                           //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Copies the contents of src to dest, including the null terminator.
 char		*ft_strcpy(char *dest, const char *src);
@@ -139,6 +173,14 @@ char		*ft_strncat(char *dest, const char *src, size_t count);
  * created, equal to the combined lengths of dest and src.
  */
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                        String Exploration Functions                        //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Counts the number of characters until the first null character.
 size_t		ft_strlen(const char *str);
@@ -192,24 +234,19 @@ char		*ft_strstr(const char *str, const char *substr);
 //! found.
 char		*ft_strnstr(const char *str, const char *substr, size_t len);
 
-//! @brief Sets the bytes in the buffer b of size len to zero.
-void		ft_bzero(void *b, size_t len);
-//! @brief Finds the first occurrence of the byte ch in the first count bytes of
-//! ptr.
-void		*ft_memchr(const void *ptr, int ch, size_t count);
-//! @brief Compares the first count bytes in the two buffer, and returns the
-//! first non-zero difference.
-int			ft_memcmp(const void *lhs, const void *rhs, size_t count);
-//! @brief Copies the character ch in the count first unsigned chars in buffer
-//! dest.
-void		*ft_memset(void *dest, int ch, size_t count);
-//! @brief Copies count bytes from buffer src to buffer dest.
-void		*ft_memcpy(void *dest, const void *src, size_t count);
-//! @brief Copies count bytes from buffer src to buffer dest, which can overlap.
-void		*ft_memmove(void *dest, const void *src, size_t count);
+//! @brief Allocates and fills a null-terminated string containing the results
+//! of applying the passed function to the characters in str.
+char		*ft_strmapi(const char *str, char (*f)(size_t, char));
+//! @brief Calls the given function on each of the characters in str.
+void		ft_striteri(char *str, void (*f)(size_t, char *));
 
-//! @brief Allocates memory for num objects of size size and zeros out memory.
-void		*ft_calloc(size_t num, size_t size);
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                   String Splitting and Joining Functions                   //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Allocates a string of size len. Copies at most len bytes from of str to this
@@ -240,11 +277,40 @@ char		*ft_strtrim(const char *str, const char *set);
 //! allocation fails.
 char		**ft_split(const char *str, char c);
 
-//! @brief Allocates and fills a null-terminated string containing the results
-//! of applying the passed function to the characters in str.
-char		*ft_strmapi(const char *str, char (*f)(size_t, char));
-//! @brief Calls the given function on each of the characters in str.
-void		ft_striteri(char *str, void (*f)(size_t, char *));
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                      Memory Area Management Functions                      //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+//! @brief Sets the bytes in the buffer b of size len to zero.
+void		ft_bzero(void *b, size_t len);
+//! @brief Finds the first occurrence of the byte ch in the first count bytes of
+//! ptr.
+void		*ft_memchr(const void *ptr, int ch, size_t count);
+//! @brief Compares the first count bytes in the two buffer, and returns the
+//! first non-zero difference.
+int			ft_memcmp(const void *lhs, const void *rhs, size_t count);
+//! @brief Copies the character ch in the count first unsigned chars in buffer
+//! dest.
+void		*ft_memset(void *dest, int ch, size_t count);
+//! @brief Copies count bytes from buffer src to buffer dest.
+void		*ft_memcpy(void *dest, const void *src, size_t count);
+//! @brief Copies count bytes from buffer src to buffer dest, which can overlap.
+void		*ft_memmove(void *dest, const void *src, size_t count);
+
+//! @brief Allocates memory for num objects of size size and zeros out memory.
+void		*ft_calloc(size_t num, size_t size);
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                      File Descriptor Output Functions                      //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Writes a char to a file descriptor.
 void		ft_putchar_fd(char c, int fd);
