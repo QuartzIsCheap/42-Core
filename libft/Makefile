@@ -30,12 +30,6 @@ SRCS		=	ft_abs.c \
 				ft_memmove.c \
 				ft_memset.c \
 				ft_min.c \
-				ft_nputchar_fd.c \
-				ft_nputendl_fd.c \
-				ft_nputllnbr_fd.c \
-				ft_nputnbr_fd.c \
-				ft_nputstr_fd.c \
-				ft_nputstrn_fd.c \
 				ft_putchar_fd.c \
 				ft_putendl_fd.c \
 				ft_putllnbr_fd.c \
