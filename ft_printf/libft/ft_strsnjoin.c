@@ -1,7 +1,7 @@
 
 #include <malloc.h>
 
-#include "../libft.h"
+#include "libft.h"
 
 static size_t	compute_combined_len(const char **strs, size_t count)
 {

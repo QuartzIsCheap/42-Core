@@ -1,7 +1,7 @@
 
 #include <limits.h>
 
-#include "../libft.h"
+#include "libft.h"
 
 long long	ft_llabs(long long n)
 {

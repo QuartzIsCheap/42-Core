@@ -1,5 +1,5 @@
 
-#include "../libft.h"
+#include "libft.h"
 
 int ft_log(long long n, int base)
 {

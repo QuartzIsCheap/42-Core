@@ -3,9 +3,9 @@
 #include <stdint.h>
 #include <malloc.h>
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*handle_char(char code, va_list args)
+static char	*handle_char(char code, va_list args)
 {
 	char	c;
 
@@ -15,7 +15,7 @@ char	*handle_char(char code, va_list args)
 	return (ft_strndup(&c, 1));
 }
 
-char	*handle_pointer(void *p)
+static char	*handle_pointer(void *p)
 {
 	char	*hexa_ptr_addr;
 	char	*result;
@@ -28,7 +28,7 @@ char	*handle_pointer(void *p)
 	return (result);
 }
 
-char	*handle_code(char code, va_list args)
+char	*handle_printf_code(char code, va_list args)
 {
 	const char	*base;
 

@@ -1,7 +1,8 @@
 NAME		=	libftprintf.a
 
-SRCS		=	ft_printf.c \
-				printf_code_handling.c \
+SRCS		=	libft/ft_printf.c \
+				libft/ft_printf/generate_formatted_str.c \
+				libft/ft_printf/printf_code_handling.c \
 				libft/ft_abs.c \
 				libft/ft_calloc.c \
 				libft/ft_lltoa_base.c \

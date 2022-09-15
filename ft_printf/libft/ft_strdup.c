@@ -1,7 +1,7 @@
 
 #include <malloc.h>
 
-#include "../libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {

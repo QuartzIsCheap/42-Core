@@ -2,7 +2,7 @@
 #include <limits.h>
 #include <malloc.h>
 
-#include "../libft.h"
+#include "libft.h"
 
 static int	checked_base_length(const char *base)
 {
