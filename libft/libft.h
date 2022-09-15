@@ -5,11 +5,11 @@
 # include <stddef.h>
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                              Math Functions                                //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                             Math Functions                               ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Returns the smallest int.
@@ -41,15 +41,18 @@ long		ft_labs(long n);
 long long	ft_llabs(long long n);
 
 //! @brief Computes the base-10 logarithm of the given number. An input in
-//! [0, base-1] gives 0, etc. The value of base must be more than one.
+//! [-(base-1), base-1] gives 0, etc. The value of base must be more than one.
 int			ft_log(long long n, int base);
+//! @brief Computes the base-10 logarithm of the given number. An input in
+//! [0, base-1] gives 0, etc. The value of base must be more than one.
+int 		ft_ulog(unsigned long long n, int base);
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                              Char Functions                                //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                             Char Functions                               ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Checks if the given character is an upper-case letter.
@@ -91,11 +94,11 @@ int			ft_toupper(int ch);
 int			ft_tolower(int ch);
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                     String-Alpha Conversions Functions                     //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                    String-Alpha Conversions Functions                    ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Converts the char stream into an integer stored as an int.
@@ -111,22 +114,23 @@ char		*ft_itoa(int n);
 //! @brief Allocates a null-terminated string containing the base-10 sequence of
 //! the digits of n.
 char		*ft_lltoa(long long n);
-/**
- * Allocates a string
- * @brief Allocates a null-terminated string containing the representation of
- * a number in a given base.
- * @param n
- * @param base
- * @return
- */
+//! @brief Allocates a null-terminated string containing the representation of
+//! a number in a given base. If the base contains +, -, several times the same
+//! character, or has less than two characters, it is considered invalid and
+//! the function returns NULL.
 char		*ft_lltoa_base(long long n, const char *base);
+//! @brief Allocates a null-terminated string containing the representation of
+//! a number in a given base. If the base contains +, -, several times the same
+//! character, or has less than two characters, it is considered invalid and
+//! the function returns NULL.
+char		*ft_ulltoa_base(unsigned long long n, const char *base);
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                            String Copy Functions                           //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                           String Copy Functions                          ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Copies the contents of src to dest, including the null terminator.
@@ -175,11 +179,11 @@ char		*ft_strncat(char *dest, const char *src, size_t count);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                        String Exploration Functions                        //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                       String Exploration Functions                       ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Counts the number of characters until the first null character.
@@ -241,11 +245,11 @@ char		*ft_strmapi(const char *str, char (*f)(size_t, char));
 void		ft_striteri(char *str, void (*f)(size_t, char *));
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                   String Splitting and Joining Functions                   //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                  String Splitting and Joining Functions                  ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -278,11 +282,11 @@ char		*ft_strtrim(const char *str, const char *set);
 char		**ft_split(const char *str, char c);
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                      Memory Area Management Functions                      //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                     Memory Area Management Functions                     ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Sets the bytes in the buffer b of size len to zero.
@@ -305,11 +309,11 @@ void		*ft_memmove(void *dest, const void *src, size_t count);
 void		*ft_calloc(size_t num, size_t size);
 
 ////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//                                                                            //
-//                      File Descriptor Output Functions                      //
-//                                                                            //
-//                                                                            //
+///                                                                          ///
+///                                                                          ///
+///                     File Descriptor Output Functions                     ///
+///                                                                          ///
+///                                                                          ///
 ////////////////////////////////////////////////////////////////////////////////
 
 //! @brief Writes a char to a file descriptor.

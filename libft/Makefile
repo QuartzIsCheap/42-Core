@@ -61,7 +61,8 @@ SRCS		=	ft_abs.c \
 				ft_strtrim.c \
 				ft_substr.c \
 				ft_tolower.c \
-				ft_toupper.c
+				ft_toupper.c \
+				ft_ulltoa_base.c
 OBJS		=	${SRCS:.c=.o}
 
 CC			=	cc
