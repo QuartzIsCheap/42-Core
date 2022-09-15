@@ -12,5 +12,7 @@ char	*ft_strnchr(const char *str, int ch, size_t count)
 			return ((char *)(str + i));
 		i++;
 	}
+	if (i < count && ch == '\0')
+		return ((char *)(str + i));
 	return (NULL);
 }

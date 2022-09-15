@@ -8,10 +8,10 @@ char	*ft_strrchr(const char *str, int ch)
 
 	len = ft_strlen(str);
 	i = 0;
-	while (i < len)
+	while (i < len + 1)
 	{
-		if (str[len - 1 - i] == ch)
-			return ((char *)(str + (len - 1 - i)));
+		if (str[len - i] == ch)
+			return ((char *)(str + (len - i)));
 		i++;
 	}
 	return (NULL);
