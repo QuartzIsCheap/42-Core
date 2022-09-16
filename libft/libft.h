@@ -338,10 +338,27 @@ void		ft_putllnbr_fd(long long n, int fd);
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- *
- * @param format
- * @param ...
- * @return
+ * Writes the format string to standard output, interpreting all % characters as
+ * control character tokens and translating them to their value as given in the
+ * variadic parameter list. The supported control characters are :
+ * - % : writes %
+ * - c : writes a single character
+ * - s : writes a null-terminated string
+ * - p : writes the pointer's value in hexadecimal, preceded by 0x, or (nil) if
+ *       the pointer points to NULL
+ * - d, i : writes a signed int
+ * - u : writes an unsigned int
+ * - x : writes an unsigned int in lower-case hexadecimal
+ * - X : writes an unsigned int in upper_case hexadecimal
+ * Any other symbol (including \0) following a % is undefined behavior. There
+ * must be at least as many variadic arguments as there are control characters,
+ * %% excluded.
+ * Returns the number of characters printed. If this value exceeds INT_MAX,
+ * returns INT_MAX.
+ * @brief Writes a formatted string on the standard output.
+ * @param format A format string.
+ * @param ... A variadic list of values replacing control codes.
+ * @return The number of characters printed, capped at INT_MAX.
  */
 int			ft_printf(const char *format, ...);
 
