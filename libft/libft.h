@@ -362,4 +362,28 @@ void		ft_putllnbr_fd(long long n, int fd);
  */
 int			ft_printf(const char *format, ...);
 
+////////////////////////////////////////////////////////////////////////////////
+///                                                                          ///
+///                                                                          ///
+///                               File Reading                               ///
+///                                                                          ///
+///                                                                          ///
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Given a file descriptor already opened and only ever read from within this
+ * function, returns the next segment of characters ending with a line break or
+ * EOF. The line break is included, and the string is null-terminated. The last
+ * line of the file may not have a line break at its end.
+ * Once the whole file has been read, the function will return NULL. It is
+ * undefined behavior to call it again with the same file descriptor. It can
+ * then be used to read the contents of another file, or of the same file if it
+ * has been closed and re-opened.
+ * @brief Reads a file line by line.
+ * @param fd A file descriptor to the file to read from.
+ * @return Null-terminated strings, including a trailing return line if there is
+ * one to include, or NULL if EOF is reached.
+ */
+char	*get_next_line(int fd);
+
 #endif //LIBFT_H
