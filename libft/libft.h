@@ -108,6 +108,67 @@ long		ft_atol(const char *str);
 //! @brief Converts the char stream into an integer stored as a long long.
 long long	ft_atoll(const char *str);
 
+/**
+ * Takes in a string of characters describing an int, and a pointer to where to
+ * put the value read from the string. If either is NULL, returns -1.
+ * The string can start with an arbitrary amount of spaces (see ft_isspace()).
+ * It can then contain an optional sign, either a + or a -.
+ * Finally it must contain at least one digit. If scanning following these rules
+ * finds no digit, -2 is returned.
+ * The scanning stops at the first non-digit character found.
+ * The digits are then converted to an int. If it would overflow, -3 is
+ * returned. Otherwise 0 is returned and the value is stored in out.
+ * In all failure cases the value in out may have been altered.
+ * Examples : "   -3eaea2342" is -3, "++3" is invalid (returns -2), "a-43" is
+ * invalid (returns -2) and "10000000000000000000000000000" is probably invalid
+ * (returns -3).
+ * @brief Tries to read an int from a string.
+ * @param str A string of characters.
+ * @param out A pointer to a writable memory location.
+ * @return 0 in case of success, a negative value in case of failure.
+ */
+int			ft_s_atoi(const char *str, int *out);
+/**
+ * Takes in a string of characters describing a long, and a pointer to where to
+ * put the value read from the string. If either is NULL, returns -1.
+ * The string can start with an arbitrary amount of spaces (see ft_isspace()).
+ * It can then contain an optional sign, either a + or a -.
+ * Finally it must contain at least one digit. If scanning following these rules
+ * finds no digit, -2 is returned.
+ * The scanning stops at the first non-digit character found.
+ * The digits are then converted to a long. If it would overflow, -3 is
+ * returned. Otherwise 0 is returned and the value is stored in out.
+ * In all failure cases the value in out may have been altered.
+ * Examples : "   -3eaea2342" is -3, "++3" is invalid (returns -2), "a-43" is
+ * invalid (returns -2) and "100000000000000000000000000000" is probably invalid
+ * (returns -3).
+ * @brief Tries to read a long from a string.
+ * @param str A string of characters.
+ * @param out A pointer to a writable memory location.
+ * @return 0 in case of success, a negative value in case of failure.
+ */
+int			ft_s_atol(const char *str, long *out);
+/**
+ * Takes in a string of characters describing a long long, and a pointer to
+ * where to put the value read from the string. If either is NULL, returns -1.
+ * The string can start with an arbitrary amount of spaces (see ft_isspace()).
+ * It can then contain an optional sign, either a + or a -.
+ * Finally it must contain at least one digit. If scanning following these rules
+ * finds no digit, -2 is returned.
+ * The scanning stops at the first non-digit character found.
+ * The digits are then converted to a long long. If they would overflow, -3 is
+ * returned. Otherwise 0 is returned and the value is stored in out.
+ * In all failure cases the value in out may have been altered.
+ * Examples : "   -3eaea2342" is -3, "++3" is invalid (returns -2), "a-43" is
+ * invalid (returns -2) and "100000000000000000000000000000" is probably invalid
+ * (returns -3).
+ * @brief Tries to read a long long from a string.
+ * @param str A string of characters.
+ * @param out A pointer to a writable memory location.
+ * @return 0 in case of success, a negative value in case of failure.
+ */
+int 		ft_s_atoll(const char *str, long long *out);
+
 //! @brief Allocates a null-terminated string containing the base-10 sequence of
 //! the digits of n.
 char		*ft_itoa(int n);
