@@ -24,7 +24,7 @@ OBJS		=	${SRCS:.c=.o}
 TEST		=	main.c
 
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -f
 
