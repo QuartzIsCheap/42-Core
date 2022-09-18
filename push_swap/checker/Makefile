@@ -16,7 +16,7 @@ LIBSDIR		=	dependencies/libs
 INCLUDESDIR	=	dependencies/includes
 
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -f
 
