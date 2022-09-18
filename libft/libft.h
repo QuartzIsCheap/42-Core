@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/04 23:10:34 by aronez            #+#    #+#             */
+/*   Updated: 2022/12/04 23:10:34 by aronez           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -368,6 +379,9 @@ void		*ft_memmove(void *dest, const void *src, size_t count);
 
 //! @brief Allocates memory for num objects of size size and zeros out memory.
 void		*ft_calloc(size_t num, size_t size);
+//! @brief Allocates size + additional_size of memory, where the size first
+//! bytes are copied from mem, and frees mem.
+void		*ft_realloc(void *mem, size_t size, size_t additional_size);
 
 ////////////////////////////////////////////////////////////////////////////////
 ///                                                                          ///

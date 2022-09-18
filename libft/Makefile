@@ -40,6 +40,7 @@ SRCS		=	ft_abs.c \
 				ft_putnbr_fd.c \
 				ft_putstr_fd.c \
 				ft_putstrn_fd.c \
+				ft_realloc.c \
 				ft_s_atoi.c \
 				ft_s_atol.c \
 				ft_s_atoll.c \
