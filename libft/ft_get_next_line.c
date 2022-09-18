@@ -84,7 +84,7 @@ static int	extract_from_buffer(
 	return (return_value);
 }
 
-char	*get_next_line(int fd)
+char	*ft_get_next_line(int fd)
 {
 	static t_sub_buffer	sub_buffer = {.start = 0, .buffer_size = 0};
 	char				*line;

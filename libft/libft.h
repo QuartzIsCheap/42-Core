@@ -445,6 +445,6 @@ int			ft_printf(const char *format, ...);
  * @return Null-terminated strings, including a trailing return line if there is
  * one to include, or NULL if EOF is reached.
  */
-char	*get_next_line(int fd);
+char	*ft_get_next_line(int fd);
 
 #endif //LIBFT_H
