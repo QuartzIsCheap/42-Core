@@ -14,5 +14,5 @@ int main(int argc, char *argv[])
 		ft_putendl_fd("Error", 2);
 		return (EXIT_FAILURE);
 	}
-	return (EXIT_SUCCESS);
+	return (free_stack(stack), EXIT_SUCCESS);
 }
