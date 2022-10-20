@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   element_access.c                                                                      :+:      :+:    :+:   */
+/*   lis.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 17:38:22 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/19 17:38:22 by aronez           ###   ########.fr       */
+/*   Created: 2022/10/20 12:03:03 by aronez            #+#    #+#             */
+/*   Updated: 2022/10/20 12:03:03 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../index_list.h"
+#ifndef LIS_H
+# define LIS_H
 
-size_t	index_list_back(t_index_list index_list)
-{
-	if (index_list.length == 0)
-		return (0);
-	return (index_list.indexes[index_list.length - 1]);
-}
+#include "stack.h"
+#include "index_list.h"
 
-size_t	index_list_front(t_index_list index_list)
-{
-	return (index_list.indexes[0]);
-}
+int	find_lis_indexes(t_stack stack, t_index_list *lis);
+
+#endif //LIS_H

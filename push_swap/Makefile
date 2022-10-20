@@ -3,9 +3,11 @@ NAME		=	push_swap
 SRCS		=	src/index_list/index_list.c \
 				src/index_list/element_access.c \
 				src/index_list/element_adding.c \
+				src/index_list/element_removal.c \
 				src/stack/creation/initialization.c \
 				src/stack/creation/parsing.c \
 				src/stack/stack.c \
+				src/lis.c \
 				src/main.c
 OBJS		=	${SRCS:.c=.o}
 

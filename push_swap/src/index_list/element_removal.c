@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   element_access.c                                                                      :+:      :+:    :+:   */
+/*   element_removal.c                                                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 17:38:22 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/19 17:38:22 by aronez           ###   ########.fr       */
+/*   Created: 2022/10/19 19:00:35 by aronez            #+#    #+#             */
+/*   Updated: 2022/10/19 19:00:35 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../index_list.h"
 
-size_t	index_list_back(t_index_list index_list)
+size_t	index_list_pop(t_index_list *index_list)
 {
-	if (index_list.length == 0)
-		return (0);
-	return (index_list.indexes[index_list.length - 1]);
-}
+	size_t	last_index;
 
-size_t	index_list_front(t_index_list index_list)
-{
-	return (index_list.indexes[0]);
+	if (index_list->length == 0)
+		return (0);
+	last_index = index_list_back(*index_list);
+	index_list->length--;
+	return (last_index);
 }

@@ -22,11 +22,16 @@ typedef struct	s_index_list
 	size_t	capacity;
 }	t_index_list;
 
-void	free_index_list(t_index_list index_list);
+void	index_list_free(t_index_list index_list);
 int		index_list_new(t_index_list *index_list);
+int		index_list_copy(t_index_list src, t_index_list *dst);
+int		index_list_assign(t_index_list src, t_index_list *dst);
 
 size_t	index_list_back(t_index_list index_list);
+size_t	index_list_front(t_index_list index_list);
 
-int	index_list_push_back(t_index_list *index_list, size_t index);
+int		index_list_push_back(t_index_list *index_list, size_t index);
+
+size_t	index_list_pop(t_index_list *index_list);
 
 #endif //INDEX_LIST_H
