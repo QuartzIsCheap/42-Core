@@ -48,6 +48,12 @@ int	index_list_copy(t_index_list src, t_index_list *dst)
 
 int	index_list_assign(t_index_list src, t_index_list *dst)
 {
+	if (dst->capacity >= src.length)
+	{
+		ft_memcpy(dst->indexes, src.indexes, sizeof(size_t) * src.length);
+		dst->length = src.length;
+		return (0);
+	}
 	index_list_free(*dst);
 	return (index_list_copy(src, dst));
 }
