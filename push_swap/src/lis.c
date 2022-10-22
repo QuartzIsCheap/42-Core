@@ -19,8 +19,10 @@
 
 size_t	find_min_index(t_stack stk, t_index_list prev_idxs)
 {
-	size_t	idx, min_idx;
-	int		prv_min, occurrence_found;
+	size_t	idx;
+	size_t	min_idx;
+	int		prv_min;
+	int		occurrence_found;
 
 	if (prev_idxs.length == 0)
 		prv_min = -1;
@@ -31,13 +33,11 @@ size_t	find_min_index(t_stack stk, t_index_list prev_idxs)
 	min_idx = 0;
 	while (idx < stk.length)
 	{
-		if (!index_list_contains(prev_idxs, idx))
+		if (!index_list_contains(prev_idxs, idx) && prv_min < stk.data[idx]
+			&& stk.data[idx] <= stk.data[min_idx])
 		{
-			if (prv_min < stk.data[idx] && stk.data[idx] <= stk.data[min_idx])
-			{
-				min_idx = idx;
-				occurrence_found = 1;
-			}
+			min_idx = idx;
+			occurrence_found = 1;
 		}
 		idx++;
 	}
@@ -90,10 +90,8 @@ int	extend_lis(t_stack stack, t_index_list *lis)
 	{
 		index_list_pop(&mem_lis);
 		if (append_larger_elements(
-				stack,
-				lis,
-				index_list_pop(lis)
-				) < 0)
+				stack, lis, index_list_pop(lis)
+			) < 0)
 			return (index_list_free(mem_lis), -1);
 		if (lis->length > mem_length)
 			return (index_list_free(mem_lis), 1);
