@@ -29,6 +29,7 @@ int		index_list_assign(t_index_list src, t_index_list *dst);
 
 size_t	index_list_back(t_index_list index_list);
 size_t	index_list_front(t_index_list index_list);
+int		index_list_contains(t_index_list index_list, size_t index);
 
 int		index_list_push_back(t_index_list *index_list, size_t index);
 

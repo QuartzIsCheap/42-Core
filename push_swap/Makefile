@@ -3,6 +3,7 @@ NAME		=	push_swap
 SRCS		=	src/index_list/index_list.c \
 				src/index_list/element_access.c \
 				src/index_list/element_adding.c \
+				src/index_list/element_lookup.c \
 				src/index_list/element_removal.c \
 				src/stack/creation/initialization.c \
 				src/stack/creation/parsing.c \
