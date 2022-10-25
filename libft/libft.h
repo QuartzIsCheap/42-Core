@@ -348,7 +348,7 @@ char		*ft_strsnjoin(const char **strs, size_t count);
 //! beginning and its end.
 char		*ft_strtrim(const char *str, const char *set);
 
-//! @brief Allocates and fills a null-terminated array of the substring in str
+//! @brief Allocates and fills a null-terminated array of the substrings in str
 //! delimited by the character c and the edges of str. Returns NULL if the
 //! allocation fails.
 char		**ft_split(const char *str, char c);
