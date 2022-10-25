@@ -56,7 +56,7 @@ long long	ft_llabs(long long n);
 int			ft_log(long long n, int base);
 //! @brief Computes the base-10 logarithm of the given number. An input in
 //! [0, base-1] gives 0, etc. The value of base must be more than one.
-int 		ft_ulog(unsigned long long n, int base);
+int			ft_ulog(unsigned long long n, int base);
 
 /*////////////////////////////////////////////////////////////////////////////*/
 /*/                                                                          /*/
@@ -178,7 +178,7 @@ int			ft_s_atol(const char *str, long *out);
  * @param out A pointer to a writable memory location.
  * @return 0 in case of success, a negative value in case of failure.
  */
-int 		ft_s_atoll(const char *str, long long *out);
+int			ft_s_atoll(const char *str, long long *out);
 
 //! @brief Allocates a null-terminated string containing the base-10 sequence of
 //! the digits of n.
@@ -229,7 +229,8 @@ char		*ft_strdup(const char *src);
 //! allocated buffer.
 char		*ft_strndup(const char *src, size_t count);
 
-//! @brief Appends src to dest, starting at the null terminator at the end of dest.
+//! @brief Appends src to dest, starting at the null terminator at the end of
+//! dest.
 char		*ft_strcat(char *dest, const char *src);
 //! @brief Appends up to count chars from src to dest, starting at the null
 //! terminator at the end of dest.
@@ -348,7 +349,7 @@ char		*ft_strsnjoin(const char **strs, size_t count);
 //! beginning and its end.
 char		*ft_strtrim(const char *str, const char *set);
 
-//! @brief Allocates and fills a null-terminated array of the substring in str
+//! @brief Allocates and fills a null-terminated array of the substrings in str
 //! delimited by the character c and the edges of str. Returns NULL if the
 //! allocation fails.
 char		**ft_split(const char *str, char c);
@@ -459,6 +460,84 @@ int			ft_printf(const char *format, ...);
  * @return Null-terminated strings, including a trailing return line if there is
  * one to include, or NULL if EOF is reached.
  */
-char	*ft_get_next_line(int fd);
+char		*ft_get_next_line(int fd);
+
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                              Vectors (oof)                               /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
+
+//! @brief Models an XD equivalent of std::vector<long>.
+typedef struct s_ft_lvec
+{
+	long	*data;
+	size_t	length;
+	size_t	capacity;
+}	t_ft_lvec;
+
+//! @brief Takes a pointer to a t_ft_lvec, sets its length to 0, its capacity
+//! to DEFAULT_NEW_ALLOC_SIZE (10 by default) and allocates data for that
+//! amount of elements.
+int			ft_lvec_new(t_ft_lvec *lvec);
+//! @brief Same as ft_lvec_new, but the initial capacity and allocation size can
+//! be passed.
+int			ft_lvec_with_capacity(t_ft_lvec *lvec, size_t capacity);
+//! @brief Creates dst as a new t_ft_lvec, while setting its length, capacity
+//! and data to the contents of src.
+int			ft_lvec_clone(const t_ft_lvec *src, t_ft_lvec *dst);
+//! @brief Same as clone, but dst is already a valid t_ft_lvec, and its contents
+//! are to be replaced by src. If the capacity in dst is enough, no allocation
+//! happens.
+int			ft_lvec_assign(const t_ft_lvec *src, t_ft_lvec *dst);
+//! @brief Deallocates the data pointer.
+void		ft_lvec_free(t_ft_lvec *lvec);
+
+//! @brief Returns 1 if the vec contains elem, 0 otherwise.
+int			ft_lvec_contains(const t_ft_lvec *lvec, long elem);
+
+//! @brief Appends new_elem to the end of data, incrementing the length by one.
+//! Re-allocates if needed.
+int			ft_lvec_push_back(t_ft_lvec *lvec, long new_elem);
+//! @brief If the length is zero, returns -2. Otherwise drops the last value in
+//! data, decrements the length by one and puts the value in prev_back_val.
+int			ft_lvec_pop_back(t_ft_lvec *lvec, long *prev_back_val);
+
+//! @brief Models an XD equivalent of std::vector<size_t>.
+typedef struct s_ft_svec
+{
+	size_t	*data;
+	size_t	length;
+	size_t	capacity;
+}	t_ft_svec;
+
+//! @brief Takes a pointer to a t_ft_lvec, sets its length to 0, its capacity
+//! to DEFAULT_NEW_ALLOC_SIZE (10 by default) and allocates data for that
+//! amount of elements.
+int			ft_svec_new(t_ft_svec *svec);
+//! @brief Same as ft_lvec_new, but the initial capacity and allocation size can
+//! be passed.
+int			ft_svec_with_capacity(t_ft_svec *svec, size_t capacity);
+//! @brief Creates dst as a new t_ft_lvec, while setting its length, capacity
+//! and data to the contents of src.
+int			ft_svec_clone(const t_ft_svec *src, t_ft_svec *dst);
+//! @brief Same as clone, but dst is already a valid t_ft_lvec, and its contents
+//! are to be replaced by src. If the capacity in dst is enough, no allocation
+//! happens.
+int			ft_svec_assign(const t_ft_svec *src, t_ft_svec *dst);
+//! @brief Deallocates the data pointer.
+void		ft_svec_free(t_ft_svec *svec);
+
+//! @brief Returns 1 if the vec contains elem, 0 otherwise.
+int			ft_svec_contains(const t_ft_svec *svec, size_t elem);
+
+//! @brief Appends new_elem to the end of data, incrementing the length by one.
+//! Re-allocates if needed.
+int			ft_svec_push_back(t_ft_svec *svec, size_t new_elem);
+//! @brief If the length is zero, returns -2. Otherwise drops the last value in
+//! data, decrements the length by one and puts the value in prev_back_val.
+int			ft_svec_pop_back(t_ft_svec *svec, size_t *prev_back_val);
 
 #endif //LIBFT_H
