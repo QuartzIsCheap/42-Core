@@ -459,6 +459,86 @@ int			ft_printf(const char *format, ...);
  * @return Null-terminated strings, including a trailing return line if there is
  * one to include, or NULL if EOF is reached.
  */
-char	*ft_get_next_line(int fd);
+char		*ft_get_next_line(int fd);
+
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                              Vectors (oof)                               /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
+
+//! @brief Models an XD equivalent of std::vector<long>.
+typedef struct	s_ft_lvec
+{
+	//! @brief A pointer to contained size_t elements.
+	long	*data;
+	size_t	length;
+	size_t	capacity;
+}	t_ft_lvec;
+
+//! @brief Takes a pointer to a t_ft_lvec, sets its length to 0, its capacity
+//! to DEFAULT_NEW_ALLOC_SIZE (10 by default) and allocates data for that
+//! amount of elements.
+int			ft_lvec_new(t_ft_lvec *lvec);
+//! @brief Same as ft_lvec_new, but the initial capacity and allocation size can
+//! be passed.
+int			ft_lvec_with_capacity(t_ft_lvec *lvec, size_t capacity);
+//! @brief Creates dst as a new t_ft_lvec, while setting its length, capacity
+//! and data to the contents of src.
+int			ft_lvec_clone(const t_ft_lvec *src, t_ft_lvec *dst);
+//! @brief Same as clone, but dst is already a valid t_ft_lvec, and its contents
+//! are to be replaced by src. If the capacity in dst is enough, no allocation
+//! happens.
+int			ft_lvec_assign(const t_ft_lvec *src, t_ft_lvec *dst);
+//! @brief Deallocates the data pointer.
+void		ft_lvec_free(t_ft_lvec *lvec);
+
+//! @brief Returns 1 if the vec contains elem, 0 otherwise.
+int			ft_lvec_contains(const t_ft_lvec *lvec, long elem);
+
+//! @brief Appends new_elem to the end of data, incrementing the length by one.
+//! Re-allocates if needed.
+int			ft_lvec_push_back(t_ft_lvec *lvec, long new_elem);
+//! @brief If the length is zero, returns -2. Otherwise drops the last value in
+//! data, decrements the length by one and puts the value in prev_back_val.
+int			ft_lvec_pop_back(t_ft_lvec *lvec, long *prev_back_val);
+
+//! @brief Models an XD equivalent of std::vector<size_t>.
+typedef struct	s_ft_svec
+{
+	//! @brief A pointer to contained size_t elements.
+	size_t	*data;
+	size_t	length;
+	size_t	capacity;
+}	t_ft_svec;
+
+//! @brief Takes a pointer to a t_ft_lvec, sets its length to 0, its capacity
+//! to DEFAULT_NEW_ALLOC_SIZE (10 by default) and allocates data for that
+//! amount of elements.
+int			ft_svec_new(t_ft_svec *svec);
+//! @brief Same as ft_lvec_new, but the initial capacity and allocation size can
+//! be passed.
+int			ft_svec_with_capacity(t_ft_svec *svec, size_t capacity);
+//! @brief Creates dst as a new t_ft_lvec, while setting its length, capacity
+//! and data to the contents of src.
+int			ft_svec_clone(const t_ft_svec *src, t_ft_svec *dst);
+//! @brief Same as clone, but dst is already a valid t_ft_lvec, and its contents
+//! are to be replaced by src. If the capacity in dst is enough, no allocation
+//! happens.
+int			ft_svec_assign(const t_ft_svec *src, t_ft_svec *dst);
+//! @brief Deallocates the data pointer.
+void		ft_svec_free(t_ft_svec *svec);
+
+//! @brief Returns 1 if the vec contains elem, 0 otherwise.
+int			ft_svec_contains(const t_ft_svec *svec, size_t elem);
+
+//! @brief Appends new_elem to the end of data, incrementing the length by one.
+//! Re-allocates if needed.
+int			ft_svec_push_back(t_ft_svec *svec, size_t new_elem);
+//! @brief If the length is zero, returns -2. Otherwise drops the last value in
+//! data, decrements the length by one and puts the value in prev_back_val.
+int			ft_svec_pop_back(t_ft_svec *svec, size_t *prev_back_val);
 
 #endif //LIBFT_H
