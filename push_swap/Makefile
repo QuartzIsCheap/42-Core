@@ -1,37 +1,31 @@
-NAME		=	push_swap
+NAME			=	push_swap
 
-SRCS		=	src/index_list/index_list.c \
-				src/index_list/element_access.c \
-				src/index_list/element_adding.c \
-				src/index_list/element_lookup.c \
-				src/index_list/element_removal.c \
-				src/stack/creation/initialization.c \
-				src/stack/creation/parsing.c \
-				src/stack/stack.c \
-				src/lis.c \
-				src/main.c
-OBJS		=	${SRCS:.c=.o}
+SRCS_DIR		=	src
+SRCS			=	main.c
 
-LIBSDIR		=	dependencies/libs
-INCLUDESDIR	=	dependencies/includes
+BUILD_DIR		=	build
+OBJS			=	${SRCS:%.c=${BUILD_DIR}/%.o}
 
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g
+LIBSDIR			=	dependencies/libs
+INCLUDESDIR		=	dependencies/includes
 
-RM			=	rm -f
+CC				=	cc
+CFLAGS			=	-Wall -Wextra -Werror -g
 
-%.o: %.c
-				${CC} ${CFLAGS} -I${INCLUDESDIR} -c $< -o $@
+RM				=	rm -f
 
-all:			${NAME}
-${NAME}:		${OBJS}
-				${CC} ${CFLAGS} -I${INCLUDESDIR} ${OBJS} -L${LIBSDIR} -lft -o ${NAME}
+${BUILD_DIR}/%.o:	${SRCS_DIR}/%.c
+					${CC} ${CFLAGS} -I${INCLUDESDIR} -c $< -o $@
+
+all:				${NAME}
+${NAME}:			${OBJS}
+					${CC} ${CFLAGS} -I${INCLUDESDIR} ${OBJS} -L${LIBSDIR} -lft -o ${NAME}
 
 clean:
-				${RM} ${OBJS}
-fclean:			clean
-				${RM} ${NAME}
+					${RM} ${OBJS}
+fclean:				clean
+					${RM} ${NAME}
 
-re:				fclean all
+re:					fclean all
 
-.PHONY:			all clean fclean re test
+.PHONY:				all clean fclean re test

@@ -15,13 +15,13 @@
 
 # include <stddef.h>
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                             Math Functions                               ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                             Math Functions                               /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Returns the smallest int.
 int			ft_min(int a, int b);
@@ -58,13 +58,13 @@ int			ft_log(long long n, int base);
 //! [0, base-1] gives 0, etc. The value of base must be more than one.
 int 		ft_ulog(unsigned long long n, int base);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                             Char Functions                               ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                             Char Functions                               /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Checks if the given character is an upper-case letter.
 int			ft_isupper(int ch);
@@ -104,13 +104,13 @@ int			ft_toupper(int ch);
 //! @brief Converts the character to lower-case if it is an upper-case letter.
 int			ft_tolower(int ch);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                    String-Alpha Conversions Functions                    ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                    String-Alpha Conversions Functions                    /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Converts the char stream into an integer stored as an int.
 int			ft_atoi(const char *str);
@@ -197,13 +197,13 @@ char		*ft_lltoa_base(long long n, const char *base);
 //! the function returns NULL.
 char		*ft_ulltoa_base(unsigned long long n, const char *base);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                           String Copy Functions                          ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                           String Copy Functions                          /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Copies the contents of src to dest, including the null terminator.
 char		*ft_strcpy(char *dest, const char *src);
@@ -250,13 +250,13 @@ char		*ft_strncat(char *dest, const char *src, size_t count);
  */
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                       String Exploration Functions                       ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                       String Exploration Functions                       /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Counts the number of characters until the first null character.
 size_t		ft_strlen(const char *str);
@@ -316,13 +316,13 @@ char		*ft_strmapi(const char *str, char (*f)(size_t, char));
 //! @brief Calls the given function on each of the characters in str.
 void		ft_striteri(char *str, void (*f)(size_t, char *));
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                  String Splitting and Joining Functions                  ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                  String Splitting and Joining Functions                  /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 /**
  * Allocates a string of size len. Copies at most len bytes from of str to this
@@ -353,13 +353,13 @@ char		*ft_strtrim(const char *str, const char *set);
 //! allocation fails.
 char		**ft_split(const char *str, char c);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                     Memory Area Management Functions                     ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                     Memory Area Management Functions                     /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Sets the bytes in the buffer b of size len to zero.
 void		ft_bzero(void *b, size_t len);
@@ -383,13 +383,13 @@ void		*ft_calloc(size_t num, size_t size);
 //! bytes are copied from mem, and frees mem.
 void		*ft_realloc(void *mem, size_t size, size_t additional_size);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                     File Descriptor Output Functions                     ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                     File Descriptor Output Functions                     /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Writes a char to a file descriptor.
 void		ft_putchar_fd(char c, int fd);
@@ -404,13 +404,13 @@ void		ft_putnbr_fd(int n, int fd);
 //! @brief Writes an integer to a file descriptor.
 void		ft_putllnbr_fd(long long n, int fd);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                              The Holy Printf                             ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                              The Holy Printf                             /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 /**
  * Writes the format string to standard output, interpreting all % characters as
@@ -437,13 +437,13 @@ void		ft_putllnbr_fd(long long n, int fd);
  */
 int			ft_printf(const char *format, ...);
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                                                                          ///
-///                               File Reading                               ///
-///                                                                          ///
-///                                                                          ///
-////////////////////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////////////////*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*/                               File Reading                               /*/
+/*/                                                                          /*/
+/*/                                                                          /*/
+/*////////////////////////////////////////////////////////////////////////////*/
 
 /**
  * Given a file descriptor already opened and only ever read from within this
