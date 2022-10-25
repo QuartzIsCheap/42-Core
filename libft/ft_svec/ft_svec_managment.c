@@ -14,13 +14,17 @@
 
 int	ft_svec_push_back(t_ft_svec *svec, size_t new_elem)
 {
+	size_t	extra_bytes;
+
 	if (svec->capacity == svec->length)
 	{
+		extra_bytes = ft_smin(sizeof(long) * svec->capacity, 65536);
 		svec->data = ft_realloc(
 				svec->data,
-				sizeof(size_t) * svec->capacity,
-				ft_smin(sizeof(size_t) * svec->capacity, 65536)
+				sizeof(long) * svec->capacity,
+				extra_bytes
 				);
+		svec->capacity += extra_bytes;
 		if (svec->data == NULL)
 			return (-1);
 	}
