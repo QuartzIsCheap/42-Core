@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int ft_log(long long n, int base)
+int	ft_log(long long n, int base)
 {
 	int	log;
 
@@ -25,7 +25,7 @@ int ft_log(long long n, int base)
 	return (log);
 }
 
-int ft_ulog(unsigned long long n, int base)
+int	ft_ulog(unsigned long long n, int base)
 {
 	int	log;
 

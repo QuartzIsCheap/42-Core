@@ -18,7 +18,7 @@
 
 #define BUFFER_SIZE 16384
 
-typedef struct	s_sub_buffer
+typedef struct s_sub_buffer
 {
 	char	buffer[BUFFER_SIZE];
 	size_t	start;
@@ -78,7 +78,7 @@ static int	extract_from_buffer(
 			buffer,
 			'\n',
 			sub_buffer->buffer_size - sub_buffer->start
-	);
+			);
 	return_value = 1;
 	if (line_break == NULL)
 	{

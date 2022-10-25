@@ -30,8 +30,8 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 		i = 0;
 		while (i < count)
 		{
-			((unsigned char *)dest)[count - 1 - i] =
-					((const unsigned char *)src)[count - 1 - i];
+			((unsigned char *)dest)[count - 1 - i]
+				= ((const unsigned char *)src)[count - 1 - i];
 			i++;
 		}
 	}

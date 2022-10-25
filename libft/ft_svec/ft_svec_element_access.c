@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-int ft_svec_contains(const t_ft_svec *svec, size_t elem)
+int	ft_svec_contains(const t_ft_svec *svec, size_t elem)
 {
 	size_t	index;
 

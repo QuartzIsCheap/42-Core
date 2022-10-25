@@ -56,7 +56,7 @@ long long	ft_llabs(long long n);
 int			ft_log(long long n, int base);
 //! @brief Computes the base-10 logarithm of the given number. An input in
 //! [0, base-1] gives 0, etc. The value of base must be more than one.
-int 		ft_ulog(unsigned long long n, int base);
+int			ft_ulog(unsigned long long n, int base);
 
 /*////////////////////////////////////////////////////////////////////////////*/
 /*/                                                                          /*/
@@ -178,7 +178,7 @@ int			ft_s_atol(const char *str, long *out);
  * @param out A pointer to a writable memory location.
  * @return 0 in case of success, a negative value in case of failure.
  */
-int 		ft_s_atoll(const char *str, long long *out);
+int			ft_s_atoll(const char *str, long long *out);
 
 //! @brief Allocates a null-terminated string containing the base-10 sequence of
 //! the digits of n.
@@ -229,7 +229,8 @@ char		*ft_strdup(const char *src);
 //! allocated buffer.
 char		*ft_strndup(const char *src, size_t count);
 
-//! @brief Appends src to dest, starting at the null terminator at the end of dest.
+//! @brief Appends src to dest, starting at the null terminator at the end of
+//! dest.
 char		*ft_strcat(char *dest, const char *src);
 //! @brief Appends up to count chars from src to dest, starting at the null
 //! terminator at the end of dest.
@@ -470,9 +471,8 @@ char		*ft_get_next_line(int fd);
 /*////////////////////////////////////////////////////////////////////////////*/
 
 //! @brief Models an XD equivalent of std::vector<long>.
-typedef struct	s_ft_lvec
+typedef struct s_ft_lvec
 {
-	//! @brief A pointer to contained size_t elements.
 	long	*data;
 	size_t	length;
 	size_t	capacity;
@@ -506,9 +506,8 @@ int			ft_lvec_push_back(t_ft_lvec *lvec, long new_elem);
 int			ft_lvec_pop_back(t_ft_lvec *lvec, long *prev_back_val);
 
 //! @brief Models an XD equivalent of std::vector<size_t>.
-typedef struct	s_ft_svec
+typedef struct s_ft_svec
 {
-	//! @brief A pointer to contained size_t elements.
 	size_t	*data;
 	size_t	length;
 	size_t	capacity;

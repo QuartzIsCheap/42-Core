@@ -77,7 +77,7 @@ static int	try_atoi(
 		int *out
 )
 {
-	int	multiplier;
+	int		multiplier;
 	size_t	i;
 
 	*out = 0;
@@ -90,7 +90,7 @@ static int	try_atoi(
 				i,
 				str[digit_count - 1 - i] - '0',
 				multiplier
-		))
+			))
 			return (-3);
 		*out += multiplier * (str[digit_count - 1 - i] - '0');
 		multiplier *= 10;

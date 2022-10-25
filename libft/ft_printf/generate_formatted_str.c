@@ -42,7 +42,12 @@ static void	free_strs(char **strs, size_t strs_count)
 	}
 }
 
-static int	parse_strs(const char *format, va_list args, char **strs, size_t strs_count)
+static int	parse_strs(
+		const char *format,
+		va_list args,
+		char **strs,
+		size_t strs_count
+		)
 {
 	size_t		strs_i;
 	const char	*prev_cc;
