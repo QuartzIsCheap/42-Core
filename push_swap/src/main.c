@@ -20,7 +20,6 @@ int	main(int argc, char *argv[])
 {
 	t_ft_lvec	stack_a;
 	t_ft_svec	lis;
-	size_t		ra_count;
 
 	if (parse_args_into_stack(argc, argv, &stack_a) < 0)
 		return (EXIT_FAILURE);
@@ -30,7 +29,7 @@ int	main(int argc, char *argv[])
 		ft_printf("%i ", stack_a.data[i]);
 	ft_printf("\n");
 
-	if (find_rotated_longest_lis(&stack_a, &lis, &ra_count) < 0)
+	if (find_rotated_longest_lis(&stack_a, &lis) < 0)
 		return (ft_lvec_free(&stack_a), EXIT_FAILURE);
 
 	ft_printf("Lis, formatted as 'value_in_stack[index_in_stack]' : ");

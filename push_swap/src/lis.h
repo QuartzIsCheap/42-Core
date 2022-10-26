@@ -13,11 +13,7 @@
 #ifndef LIS_H
 # define LIS_H
 
-int	find_rotated_longest_lis(
-		const t_ft_lvec *vec,
-		t_ft_svec *lis,
-		size_t *ra_count
-		);
+int	find_rotated_longest_lis(const t_ft_lvec *vec, t_ft_svec *lis);
 int	find_lis_indexes(const t_ft_lvec *vec, t_ft_svec *lis);
 
 #endif //LIS_H
