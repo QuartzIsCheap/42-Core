@@ -3,6 +3,11 @@ NAME			=	push_swap
 SRCS_DIR		=	src
 SRCS			=	main.c \
 					lis/find_indexes.c \
+					lis/rotating_find.c \
+					stack/instructions/pushes.c \
+					stack/instructions/reverse_rotates.c \
+					stack/instructions/rotates.c \
+					stack/instructions/swaps.c \
 					stack/parsing.c
 
 BUILD_DIR		=	build

@@ -10,9 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_LIS_H
-# define PUSH_SWAP_LIS_H
+#ifndef LIS_H
+# define LIS_H
 
+int	find_rotated_longest_lis(
+		const t_ft_lvec *vec,
+		t_ft_svec *lis,
+		size_t *ra_count
+		);
 int	find_lis_indexes(const t_ft_lvec *vec, t_ft_svec *lis);
 
-#endif //PUSH_SWAP_LIS_H
+#endif //LIS_H
