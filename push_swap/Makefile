@@ -1,7 +1,8 @@
 NAME			=	push_swap
 
 SRCS_DIR		=	src
-SRCS			=	main.c
+SRCS			=	main.c \
+					stack/parsing.c
 
 BUILD_DIR		=	build
 OBJS			=	${SRCS:%.c=${BUILD_DIR}/%.o}
