@@ -2,6 +2,7 @@ NAME			=	push_swap
 
 SRCS_DIR		=	src
 SRCS			=	main.c \
+					lis/find_indexes.c \
 					stack/parsing.c
 
 BUILD_DIR		=	build
