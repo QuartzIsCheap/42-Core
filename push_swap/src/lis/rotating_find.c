@@ -66,6 +66,19 @@ static size_t	find_longest_lis_idx(t_ft_svec *svecs, size_t svecs_count)
 	return (max_idx);
 }
 
+void	cancel_rotations_offset(t_ft_svec *lis, size_t ra_count, size_t vec_len)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < lis->length)
+	{
+		lis->data[i] = (lis->data[i] + ra_count) % vec_len;
+		if (lis->data)
+		i++;
+	}
+}
+
 int	find_rotated_longest_lis(
 		const t_ft_lvec *vec,
 		t_ft_svec *lis,
@@ -88,5 +101,6 @@ int	find_rotated_longest_lis(
 	if (lis_clone_status < 0)
 		return (-1);
 	*ra_count = longest_lis_idx;
+	cancel_rotations_offset(lis, *ra_count, vec->length);
 	return (0);
 }

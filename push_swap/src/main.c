@@ -33,12 +33,6 @@ int	main(int argc, char *argv[])
 	if (find_rotated_longest_lis(&stack_a, &lis, &ra_count) < 0)
 		return (ft_lvec_free(&stack_a), EXIT_FAILURE);
 
-	for (size_t i = 0; i < ra_count; ++i)
-		stack_ra(&stack_a, NULL);
-	ft_printf("Stack after %u rotation(s) : ", ra_count);
-	for (size_t i = 0; i < stack_a.length; ++i)
-		ft_printf("%i ", stack_a.data[i]);
-	ft_printf("\n");
 	ft_printf("Lis, formatted as 'value_in_stack[index_in_stack]' : ");
 	for (size_t i = 0; i < lis.length; ++i)
 		ft_printf("%i[%u] ", stack_a.data[lis.data[i]], lis.data[i]);
