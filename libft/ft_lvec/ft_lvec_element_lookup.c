@@ -21,6 +21,7 @@ int	ft_lvec_contains(const t_ft_lvec *lvec, long elem)
 	{
 		if (lvec->data[index] == elem)
 			return (1);
+		index++;
 	}
 	return (0);
 }

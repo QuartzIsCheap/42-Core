@@ -21,6 +21,7 @@ int	ft_svec_contains(const t_ft_svec *svec, size_t elem)
 	{
 		if (svec->data[index] == elem)
 			return (1);
+		index++;
 	}
 	return (0);
 }

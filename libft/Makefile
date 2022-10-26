@@ -25,10 +25,10 @@ SRCS		=	ft_abs.c \
 				ft_lltoa_base.c \
 				ft_log.c \
 				ft_lvec/ft_lvec_alloc.c \
-				ft_lvec/ft_lvec_element_access.c \
+				ft_lvec/ft_lvec_element_lookup.c \
 				ft_lvec/ft_lvec_managment.c \
 				ft_svec/ft_svec_alloc.c \
-				ft_svec/ft_svec_element_access.c \
+				ft_svec/ft_svec_element_lookup.c \
 				ft_svec/ft_svec_managment.c \
 				ft_max.c \
 				ft_memchr.c \
