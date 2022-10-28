@@ -24,7 +24,7 @@ int	ft_lvec_push_back(t_ft_lvec *lvec, long new_elem)
 				sizeof(long) * lvec->capacity,
 				extra_bytes
 				);
-		lvec->capacity += extra_bytes;
+		lvec->capacity += extra_bytes / sizeof(long);
 		if (lvec->data == NULL)
 			return (-1);
 	}
