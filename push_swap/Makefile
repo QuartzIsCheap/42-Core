@@ -10,8 +10,7 @@ SRCS			=	main.c \
 					stack/instructions/swaps.c \
 					stack/parsing.c
 
-BUILD_DIR		=	build
-OBJS			=	${SRCS:%.c=${BUILD_DIR}/%.o}
+OBJS			=	${SRCS:%.c=${SRCS_DIR}/%.o}
 
 LIBSDIR			=	dependencies/libs
 INCLUDESDIR		=	dependencies/includes
@@ -21,7 +20,7 @@ CFLAGS			=	-Wall -Wextra -Werror -g
 
 RM				=	rm -f
 
-${BUILD_DIR}/%.o:	${SRCS_DIR}/%.c
+%.o:				%.c
 					${CC} ${CFLAGS} -I${INCLUDESDIR} -c $< -o $@
 
 all:				${NAME}
