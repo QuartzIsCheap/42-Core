@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 void	offset_lis(t_ft_svec *lis, long offset, size_t stack_len)
 {

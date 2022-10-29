@@ -13,7 +13,7 @@
 #ifndef STACK_H
 # define STACK_H
 
-# include "libft.h"
+# include <libft.h>
 
 int		parse_args_into_stack(int argc, char *argv[], t_ft_lvec *stack);
 

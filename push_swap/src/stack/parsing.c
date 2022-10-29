@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <malloc.h>
-#include "libft.h"
+#include <libft.h>
 
 static void	free_strs(char **strs)
 {

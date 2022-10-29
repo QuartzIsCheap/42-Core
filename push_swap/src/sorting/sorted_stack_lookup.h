@@ -13,7 +13,7 @@
 #ifndef SORTED_STACK_LOOKUP_H
 # define SORTED_STACK_LOOKUP_H
 
-# include "libft.h"
+# include <libft.h>
 
 size_t	index_of_min_b_value(const t_ft_lvec *stack_b);
 

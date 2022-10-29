@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 static void	stack_push(t_ft_lvec *stack_from, t_ft_lvec *stack_to)
 {

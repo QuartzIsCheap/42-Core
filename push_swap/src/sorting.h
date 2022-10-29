@@ -13,7 +13,7 @@
 #ifndef SORTING_H
 # define SORTING_H
 
-# include "libft.h"
+# include <libft.h>
 
 int	sort_stack(t_ft_lvec *stack_a, t_ft_svec *lis, t_ft_lvec *instructions);
 
