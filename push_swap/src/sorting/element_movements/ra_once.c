@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lis.h                                              :+:      :+:    :+:   */
+/*   ra_once.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 15:12:56 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/26 15:12:56 by aronez           ###   ########.fr       */
+/*   Created: 2022/10/28 10:20:09 by aronez            #+#    #+#             */
+/*   Updated: 2022/10/28 10:20:09 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIS_H
-# define LIS_H
+#include "libft.h"
 
-int		find_rotated_longest_lis(const t_ft_lvec *vec, t_ft_svec *lis);
-int		find_lis_indexes(const t_ft_lvec *vec, t_ft_svec *lis);
+#include "../../stack.h"
+#include "../../lis.h"
 
-void	offset_lis(t_ft_svec *lis, long offset, size_t stack_len);
-
-#endif //LIS_H
+int	ra_once(t_ft_lvec *stack_a, t_ft_svec *lis, t_ft_lvec *instructions)
+{
+	stack_ra(stack_a, NULL);
+	if (ft_lvec_push_back(instructions, StackRA) < 0)
+		return (-1);
+	offset_lis(lis, -1, stack_a->length);
+	return (0);
+}

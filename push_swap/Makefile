@@ -4,6 +4,14 @@ SRCS_DIR		=	src
 SRCS			=	main.c \
 					lis/find_indexes.c \
 					lis/rotating_find.c \
+					lis/updating.c \
+					sorting/element_movements/pa_until_next_lis_elem.c \
+					sorting/element_movements/pb_until_lis_elem_front.c \
+					sorting/element_movements/ra_once.c \
+					sorting/element_movements/rra_sorted_until_main.c \
+					sorting/element_movements/rra_until_front_b_fits_a.c \
+					sorting/sort_stack.c \
+					sorting/sorted_stack_lookup.c \
 					stack/instructions/pushes.c \
 					stack/instructions/reverse_rotates.c \
 					stack/instructions/rotates.c \
