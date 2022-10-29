@@ -35,10 +35,13 @@ static int	parse_int_array(char **strs, t_ft_lvec *stack)
 		if (ft_s_atoi(*strs, &element) < 0)
 		{
 			ft_printf("Error\n");
-			return (ft_lvec_free(stack), -2);
+			return (ft_lvec_free(stack), -1);
 		}
 		if (ft_lvec_contains(stack, element))
-			return (ft_lvec_free(stack), -2);
+		{
+			ft_printf("Error\n");
+			return (ft_lvec_free(stack), -1);
+		}
 		if (ft_lvec_push_back(stack, element) < 0)
 			return (-1);
 		strs++;
