@@ -29,7 +29,7 @@ void	stack_rra(t_ft_lvec *stack_a, t_ft_lvec *stack_b);
 void	stack_rrb(t_ft_lvec *stack_a, t_ft_lvec *stack_b);
 void	stack_rrr(t_ft_lvec *stack_a, t_ft_lvec *stack_b);
 
-enum	e_stack_instructions
+typedef enum e_stack_instruction
 {
 	StackSA,
 	StackSB,
@@ -42,6 +42,6 @@ enum	e_stack_instructions
 	StackRRA,
 	StackRRB,
 	StackRRR
-};
+}	t_stack_instruction;
 
 #endif //STACK_H
