@@ -25,6 +25,12 @@ int	ft_printf(const char *format, ...)
 	char	*formatted_str;
 	int		result;
 
+	if (ft_strchr(format, '%') == NULL)
+	{
+		result = (int)ft_smin(ft_strlen(format), INT_MAX);
+		ft_putstrn_fd(format, (size_t)result, 1);
+		return (result);
+	}
 	va_start(args, format);
 	formatted_str = translate_printf_format_string(format, args);
 	va_end(args);
