@@ -53,8 +53,8 @@ int	parse_args_into_stack(int argc, char *argv[], t_ft_lvec *stack)
 {
 	char	**strs;
 
-	if (argc <= 1)
-		return (ft_printf("Error\n"), -2);
+	if (argc < 2)
+		stack->length = 0;
 	else if (argc == 2)
 	{
 		strs = ft_split(argv[1], ' ');
