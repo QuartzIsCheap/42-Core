@@ -44,6 +44,38 @@ static size_t	compute_rb_count(
 	return (i);
 }
 
+static int	rotate_b_efficiently(
+		t_ft_lvec *stack_b,
+		t_ft_lvec *instructions,
+		size_t rb_count
+		)
+{
+	size_t	i;
+
+	i = 0;
+	if (rb_count < stack_b->length / 2)
+	{
+		while (i < rb_count)
+		{
+			stack_rb(NULL, stack_b);
+			if (ft_lvec_push_back(instructions, StackRB) < 0)
+				return (-1);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < stack_b->length - rb_count)
+		{
+			stack_rrb(NULL, stack_b);
+			if (ft_lvec_push_back(instructions, StackRRB) < 0)
+				return (-1);
+			i++;
+		}
+	}
+	return (0);
+}
+
 static int	rotate_b_to_insert(
 		t_ft_lvec *stack_b,
 		long new_elem,
@@ -52,7 +84,6 @@ static int	rotate_b_to_insert(
 {
 	size_t	min_val_idx;
 	size_t	rb_count;
-	size_t	i;
 
 	rb_count = 0;
 	if (stack_b->length > 1)
@@ -60,14 +91,7 @@ static int	rotate_b_to_insert(
 		min_val_idx = index_of_min_b_value(stack_b);
 		rb_count = compute_rb_count(stack_b, min_val_idx, new_elem);
 	}
-	i = 0;
-	while (i < rb_count)
-	{
-		stack_rb(NULL, stack_b);
-		if (ft_lvec_push_back(instructions, StackRB) < 0)
-			return (-1);
-		i++;
-	}
+	rotate_b_efficiently(stack_b, instructions, rb_count);
 	return (0);
 }
 
