@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <libft.h>
 
+#include "instructions.h"
 #include "lis.h"
 #include "stack.h"
 #include "sorting.h"
@@ -60,6 +61,7 @@ int	main(int argc, char *argv[])
 		return (ft_svec_free(&lis), ft_lvec_free(&stack_a), EXIT_FAILURE);
 	if (sort_stack(&stack_a, &lis, &instructions) < 0)
 		return (ft_svec_free(&lis), ft_lvec_free(&stack_a), EXIT_FAILURE);
+	compress_instructions(&instructions);
 	display_instructions(&instructions);
 	ft_lvec_free(&instructions);
 	return (ft_lvec_free(&stack_a), ft_svec_free(&lis), EXIT_SUCCESS);

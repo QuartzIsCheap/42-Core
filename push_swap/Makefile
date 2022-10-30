@@ -2,6 +2,7 @@ NAME			=	push_swap
 
 SRCS_DIR		=	src
 SRCS			=	main.c \
+					instructions/compression.c \
 					lis/find_indexes.c \
 					lis/rotating_find.c \
 					lis/updating.c \
