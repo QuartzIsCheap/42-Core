@@ -63,7 +63,7 @@ static int	push_b_back_to_a(
 {
 	if (rra_sorted_a_until_main(stack_a, instructions) < 0)
 		return (-1);
-	if (rra_sorted_b_until_main(stack_b, instructions) < 0)
+	if (rrb_sorted_b_until_main(stack_b, instructions) < 0)
 		return (-1);
 	while (stack_b->length != 0)
 	{

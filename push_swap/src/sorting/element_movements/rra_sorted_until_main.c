@@ -25,7 +25,7 @@ int	rra_sorted_a_until_main(t_ft_lvec *stack_a, t_ft_lvec *instructions)
 	return (0);
 }
 
-int	rra_sorted_b_until_main(t_ft_lvec *stack_b, t_ft_lvec *instructions)
+int	rrb_sorted_b_until_main(t_ft_lvec *stack_b, t_ft_lvec *instructions)
 {
 	while (stack_b->data[0] < stack_b->data[stack_b->length - 1])
 	{

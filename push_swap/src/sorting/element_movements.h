@@ -31,6 +31,6 @@ int	rra_until_front_b_fits_a(
 		t_ft_lvec *instructions
 		);
 int	rra_sorted_a_until_main(t_ft_lvec *stack_a, t_ft_lvec *instructions);
-int	rra_sorted_b_until_main(t_ft_lvec *stack_b, t_ft_lvec *instructions);
+int	rrb_sorted_b_until_main(t_ft_lvec *stack_b, t_ft_lvec *instructions);
 
 #endif //ELEMENT_MOVEMENTS_H
