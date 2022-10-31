@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted_stack_lookup.c                              :+:      :+:    :+:   */
+/*   first_non_lis_elem_idx.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 15:12:24 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/28 15:12:24 by aronez           ###   ########.fr       */
+/*   Created: 2022/10/31 16:18:36 by aronez            #+#    #+#             */
+/*   Updated: 2022/10/31 16:18:36 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-size_t	index_of_min_b_value(const t_ft_lvec *stack_b)
+size_t	first_non_lis_elem_idx(size_t stack_a_length, const t_ft_svec *lis)
 {
-	size_t	idx;
+	size_t	i;
 
-	if (stack_b->data[0] >= stack_b->data[stack_b->length - 1])
-		return (stack_b->length - 1);
-	idx = 0;
-	while (stack_b->data[idx] > stack_b->data[idx + 1])
-		idx++;
-	return (idx);
+	i = 0;
+	while (i < stack_a_length)
+	{
+		if (!ft_svec_contains(lis, i))
+			return (i);
+		i++;
+	}
+	return (0);
 }
