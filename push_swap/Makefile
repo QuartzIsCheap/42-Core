@@ -56,6 +56,16 @@ ${TESTER}:
 					make -C tester tester
 
 test:				${NAME} ${TESTER}
+					ARG=""; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="1 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="2 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="1 2 3"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="1 3 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="2 1 3"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="2 3 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="3 1 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="3 2 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="20 21 22 23 24 25 26 27 28 29 30"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="20 28 29 21 30 25 23 24 27 26 22"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="30 22 25 20 21 26 29 24 28 27 23"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
