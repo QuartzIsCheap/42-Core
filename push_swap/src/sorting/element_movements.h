@@ -21,14 +21,12 @@ int	push_to_a(
 int	push_to_b(
 		t_ft_lvec *stack_a,
 		t_ft_lvec *stack_b,
-		t_ft_lvec *instructions,
-		t_ft_svec *lis
+		t_ft_lvec *instructions
 		);
 
 int	rotate_a_efficiently(
 		t_ft_lvec *stack_a,
 		t_ft_lvec *instructions,
-		t_ft_svec *lis,
 		size_t ra_count
 		);
 int	rotate_b_efficiently(

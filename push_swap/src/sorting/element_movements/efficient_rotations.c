@@ -50,7 +50,6 @@ int	rotate_b_efficiently(
 int	rotate_a_efficiently(
 		t_ft_lvec *stack_a,
 		t_ft_lvec *instructions,
-		t_ft_svec *lis,
 		size_t ra_count
 )
 {
@@ -77,6 +76,5 @@ int	rotate_a_efficiently(
 			i++;
 		}
 	}
-	offset_lis(lis, -1 * (long)ra_count, stack_a->length);
 	return (0);
 }

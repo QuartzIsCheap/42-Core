@@ -15,6 +15,7 @@
 #include "../element_movements.h"
 #include "../sorted_stack_lookup.h"
 #include "efficient_a_to_b.h"
+#include "../../lis.h"
 
 static int	first_push_to_b(
 		t_ft_lvec *stack_a,
@@ -26,10 +27,12 @@ static int	first_push_to_b(
 	size_t	first_elem_idx;
 
 	first_elem_idx = first_non_lis_elem_idx(stack_a->length, lis);
-	if (rotate_a_efficiently(stack_a, instructions, lis, first_elem_idx) < 0)
+	if (rotate_a_efficiently(stack_a, instructions, first_elem_idx) < 0)
 		return (-1);
-	if (push_to_b(stack_a, stack_b, instructions, lis) < 0)
+	offset_lis(lis, -1 * (long)first_elem_idx, stack_a->length);
+	if (push_to_b(stack_a, stack_b, instructions) < 0)
 		return (-1);
+	offset_lis(lis, -1, stack_a->length);
 	return (0);
 }
 
@@ -54,11 +57,13 @@ static int	push_next_elem_to_b(
 		) < 0)
 		return (-1);
 	if (rotate_a_efficiently(
-			stack_a, instructions, lis, next_elem_idx
+			stack_a, instructions, next_elem_idx
 		) < 0)
 		return (-1);
-	if (push_to_b(stack_a, stack_b, instructions, lis) < 0)
+	offset_lis(lis, -1 * (long)next_elem_idx, stack_a->length);
+	if (push_to_b(stack_a, stack_b, instructions) < 0)
 		return (-1);
+	offset_lis(lis, -1, stack_a->length);
 	return (0);
 }
 
