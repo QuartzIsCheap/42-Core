@@ -13,7 +13,6 @@
 #include <libft.h>
 
 #include "../efficient_a_to_b.h"
-#include "../../sorted_stack_lookup.h"
 
 static size_t	compute_push_cost(
 		const t_ft_lvec *stack_a,

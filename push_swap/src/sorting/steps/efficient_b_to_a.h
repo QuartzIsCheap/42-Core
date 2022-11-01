@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra_once.c                                          :+:      :+:    :+:   */
+/*   efficient_b_to_a.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 10:20:09 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/28 10:20:09 by aronez           ###   ########.fr       */
+/*   Created: 2022/10/31 22:13:33 by aronez            #+#    #+#             */
+/*   Updated: 2022/10/31 22:13:33 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#ifndef EFFICIENT_B_TO_A_H
+# define EFFICIENT_B_TO_A_H
 
-#include "../../stack.h"
-#include "../../lis.h"
+size_t	compute_ra_count(
+			const t_ft_lvec *stack_a,
+			size_t min_val_idx,
+			long new_elem
+			);
 
-int	ra_once(t_ft_lvec *stack_a, t_ft_svec *lis, t_ft_lvec *instructions)
-{
-	stack_ra(stack_a, NULL);
-	if (ft_lvec_push_back(instructions, StackRA) < 0)
-		return (-1);
-	offset_lis(lis, -1, stack_a->length);
-	return (0);
-}
+#endif //EFFICIENT_B_TO_A_H

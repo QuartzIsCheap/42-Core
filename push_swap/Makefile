@@ -8,14 +8,10 @@ SRCS			=	main.c \
 					lis/updating.c \
 					sorting/element_movements/efficient_rotations.c \
 					sorting/element_movements/pushes.c \
-					sorting/element_movements/pa_until_next_lis_elem.c \
-					sorting/element_movements/pb_until_lis_elem_front.c \
-					sorting/element_movements/ra_once.c \
-					sorting/element_movements/rra_sorted_until_main.c \
-					sorting/element_movements/rra_until_front_b_fits_a.c \
 					sorting/steps/efficient_a_to_b/compute_rb_count.c \
 					sorting/steps/efficient_a_to_b/find_min_cost_elem.c \
 					sorting/steps/efficient_a_to_b/first_non_lis_elem_idx.c \
+					sorting/steps/efficient_b_to_a/compute_ra_count.c \
 					sorting/steps/push_from_sorted_b.c \
 					sorting/steps/push_to_sorted_b.c \
 					sorting/sort_stack.c \

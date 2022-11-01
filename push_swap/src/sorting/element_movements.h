@@ -13,19 +13,6 @@
 #ifndef ELEMENT_MOVEMENTS_H
 # define ELEMENT_MOVEMENTS_H
 
-int	pa_until_next_lis_elem(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_lvec *instructions
-		);
-int	rra_until_front_b_fits_a(
-		t_ft_lvec *stack_a,
-		long stack_b_front,
-		t_ft_lvec *instructions
-		);
-int	rra_sorted_a_until_main(t_ft_lvec *stack_a, t_ft_lvec *instructions);
-int	rrb_sorted_b_until_main(t_ft_lvec *stack_b, t_ft_lvec *instructions);
-
 int	push_to_a(
 		t_ft_lvec *stack_a,
 		t_ft_lvec *stack_b,
