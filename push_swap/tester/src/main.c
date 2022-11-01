@@ -78,6 +78,8 @@ int	main(int argc, char *argv[])
 
 	if (parse_args_into_stack(argc, argv, &stack_a) < 0)
 		return (-1);
+	if (stack_a.length < 2)
+		return (0);
 	if (ft_lvec_with_capacity(&stack_b, stack_a.length) < 0)
 		return (ft_lvec_free(&stack_a), -1);
 	if (execute_instructions_from_fd(&stack_a, &stack_b, 0) < 0)
