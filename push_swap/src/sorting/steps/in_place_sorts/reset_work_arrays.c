@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   steps.h                                            :+:      :+:    :+:   */
+/*   reset_work_arrays.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 11:09:19 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/31 11:09:19 by aronez           ###   ########.fr       */
+/*   Created: 2022/11/03 10:15:17 by aronez            #+#    #+#             */
+/*   Updated: 2022/11/03 10:15:17 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STEPS_H
-# define STEPS_H
+#include <libft.h>
 
-# include <libft.h>
-
-int	push_non_lis_elems_to_b(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_svec *lis,
-		t_ft_lvec *instructions
-		);
-int	push_b_back_to_a(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_lvec *instructions
-		);
-int	sort_in_place(t_ft_lvec *stack_a, t_ft_lvec *instructions);
-
-#endif //STEPS_H
+int	reset_work_arrays(
+		const t_ft_lvec *stack_a,
+		t_ft_lvec *wrk_a,
+		t_ft_lvec *sa_ra
+		)
+{
+	if (ft_lvec_assign(stack_a, wrk_a) < 0)
+		return (ft_lvec_free(sa_ra), -1);
+	sa_ra->length = 0;
+	return (0);
+}

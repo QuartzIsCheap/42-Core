@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   steps.h                                            :+:      :+:    :+:   */
+/*   only_rotates_sort.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 11:09:19 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/31 11:09:19 by aronez           ###   ########.fr       */
+/*   Created: 2022/11/03 10:23:07 by aronez            #+#    #+#             */
+/*   Updated: 2022/11/03 10:23:07 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STEPS_H
-# define STEPS_H
+#include <libft.h>
 
-# include <libft.h>
+#include "../../element_movements.h"
 
-int	push_non_lis_elems_to_b(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_svec *lis,
-		t_ft_lvec *instructions
-		);
-int	push_b_back_to_a(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_lvec *instructions
-		);
-int	sort_in_place(t_ft_lvec *stack_a, t_ft_lvec *instructions);
+int	try_sort_with_only_rotates(
+		t_ft_lvec *wrk_a,
+		t_ft_lvec *sa_ra,
+		size_t ra_count
+		)
+{
+	size_t	i;
 
-#endif //STEPS_H
+	i = -1;
+	while (++i < ra_count)
+	{
+		if (ra_once(wrk_a, sa_ra) < 0)
+			return (-1);
+	}
+	return (0);
+}

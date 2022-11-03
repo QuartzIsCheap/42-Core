@@ -35,4 +35,7 @@ int	rotate_b_efficiently(
 		size_t rb_count
 		);
 
+int	sa_once(t_ft_lvec *stack, t_ft_lvec *instructions);
+int	ra_once(t_ft_lvec *stack, t_ft_lvec *instructions);
+
 #endif //ELEMENT_MOVEMENTS_H

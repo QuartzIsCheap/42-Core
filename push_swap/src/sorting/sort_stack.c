@@ -24,6 +24,8 @@ int	sort_stack(t_ft_lvec *stack_a, t_ft_svec *lis, t_ft_lvec *instructions)
 		return (-1);
 	if (push_non_lis_elems_to_b(stack_a, &stack_b, lis, instructions) < 0)
 		return (ft_lvec_free(&stack_b), -1);
+	if (sort_in_place(stack_a, instructions) < 0)
+		return (ft_lvec_free(&stack_b), -1);
 	if (push_b_back_to_a(stack_a, &stack_b, instructions) < 0)
 		return (ft_lvec_free(&stack_b), -1);
 	if (rotate_a_efficiently(

@@ -8,10 +8,19 @@ SRCS			=	main.c \
 					lis/updating.c \
 					sorting/element_movements/efficient_rotations.c \
 					sorting/element_movements/pushes.c \
+					sorting/element_movements/single_movements.c \
 					sorting/steps/efficient_a_to_b/compute_rb_count.c \
 					sorting/steps/efficient_a_to_b/find_min_cost_elem.c \
 					sorting/steps/efficient_a_to_b/first_non_lis_elem_idx.c \
 					sorting/steps/efficient_b_to_a/compute_ra_count.c \
+					sorting/steps/in_place_sorts/switches_interleaving/beginning_switches_sort.c \
+					sorting/steps/in_place_sorts/switches_interleaving/next_switch_setup_sort.c \
+					sorting/steps/in_place_sorts/intertwined_switches_sort.c \
+					sorting/steps/in_place_sorts/only_rotates_sort.c \
+					sorting/steps/in_place_sorts/reset_work_arrays.c \
+					sorting/steps/in_place_sorts/rotations_compressions.c \
+					sorting/steps/in_place_sorts/vec_sorted_check.c \
+					sorting/steps/in_place_sort.c \
 					sorting/steps/push_from_sorted_b.c \
 					sorting/steps/push_to_sorted_b.c \
 					sorting/sort_stack.c \
@@ -62,6 +71,18 @@ test:				${NAME} ${TESTER}
 					ARG="2 3 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="3 1 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="3 2 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="1 2 3 4 5"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="2 3 4 5 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="3 4 5 1 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="4 5 1 2 3"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="5 1 2 3 4"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="2 1 3 4 5"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="1 3 4 5 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="3 4 5 2 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="4 5 2 1 3"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="5 2 1 3 4"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="5 4 3 2 1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
+					ARG="6 5 4 3 1 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="20 21 22 23 24 25 26 27 28 29 30"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="20 28 29 21 30 25 23 24 27 26 22"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="30 22 25 20 21 26 29 24 28 27 23"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG

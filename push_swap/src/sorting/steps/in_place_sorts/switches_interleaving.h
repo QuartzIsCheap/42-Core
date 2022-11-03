@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   steps.h                                            :+:      :+:    :+:   */
+/*   switches_interleaving.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 11:09:19 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/31 11:09:19 by aronez           ###   ########.fr       */
+/*   Created: 2022/11/03 10:37:30 by aronez            #+#    #+#             */
+/*   Updated: 2022/11/03 10:37:30 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STEPS_H
-# define STEPS_H
+#ifndef SWITCHES_INTERLEAVING_H
+# define SWITCHES_INTERLEAVING_H
 
-# include <libft.h>
-
-int	push_non_lis_elems_to_b(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_svec *lis,
-		t_ft_lvec *instructions
+int	try_sort_with_begin_switches(
+		t_ft_lvec *wrk_a,
+		t_ft_lvec *sa_ra,
+		size_t ra_count,
+		size_t sa_count
 		);
-int	push_b_back_to_a(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_lvec *instructions
-		);
-int	sort_in_place(t_ft_lvec *stack_a, t_ft_lvec *instructions);
+int	try_sort_with_next_switches(t_ft_lvec *wrk_a, t_ft_lvec *sa_ra);
 
-#endif //STEPS_H
+#endif //SWITCHES_INTERLEAVING_H

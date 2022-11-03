@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   steps.h                                            :+:      :+:    :+:   */
+/*   single_movements.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 11:09:19 by aronez            #+#    #+#             */
-/*   Updated: 2022/10/31 11:09:19 by aronez           ###   ########.fr       */
+/*   Created: 2022/11/03 10:24:20 by aronez            #+#    #+#             */
+/*   Updated: 2022/11/03 10:24:20 by aronez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STEPS_H
-# define STEPS_H
+#include <libft.h>
 
-# include <libft.h>
+#include "../../stack.h"
 
-int	push_non_lis_elems_to_b(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_svec *lis,
-		t_ft_lvec *instructions
-		);
-int	push_b_back_to_a(
-		t_ft_lvec *stack_a,
-		t_ft_lvec *stack_b,
-		t_ft_lvec *instructions
-		);
-int	sort_in_place(t_ft_lvec *stack_a, t_ft_lvec *instructions);
+int	sa_once(t_ft_lvec *stack, t_ft_lvec *instructions)
+{
+	stack_sa(stack, NULL);
+	if (ft_lvec_push_back(instructions, StackSA) < 0)
+		return (-1);
+	return (0);
+}
 
-#endif //STEPS_H
+int	ra_once(t_ft_lvec *stack, t_ft_lvec *instructions)
+{
+	stack_ra(stack, NULL);
+	if (ft_lvec_push_back(instructions, StackRA) < 0)
+		return (ft_lvec_free(stack), -1);
+	return (0);
+}
