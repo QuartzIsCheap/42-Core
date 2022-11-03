@@ -57,6 +57,10 @@ void	compress_instructions(t_ft_lvec *instructions)
 			compress_instructions_pair(instructions, StackRRB, StackRRR, i);
 		else if (instructions->data[i] == StackRRB)
 			compress_instructions_pair(instructions, StackRRA, StackRRR, i);
+		else if (instructions->data[i] == StackSA)
+			compress_instructions_pair(instructions, StackSB, StackSS, i);
+		else if (instructions->data[i] == StackSB)
+			compress_instructions_pair(instructions, StackSA, StackSS, i);
 		i--;
 	}
 }
