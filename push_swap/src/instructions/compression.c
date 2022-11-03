@@ -14,7 +14,7 @@
 
 #include "../stack.h"
 
-void	compress_instructions_pair(
+static void	compress_instructions_pair(
 		t_ft_lvec *instructions,
 		t_stack_instruction other_instruction,
 		t_stack_instruction combination_instruction,
@@ -42,12 +42,63 @@ void	compress_instructions_pair(
 	}
 }
 
-void	compress_instructions(t_ft_lvec *instructions)
+static int	delete_redundant_pair(
+		t_ft_lvec *instructions,
+		t_stack_instruction other_instruction,
+		size_t instruction_index
+		)
 {
 	size_t	i;
 
-	i = instructions->length - 1;
-	while (i < instructions->length)
+	i = instruction_index - 1;
+	while (i < instructions->length
+		&& instructions->data[i] == instructions->data[instruction_index]
+	)
+		i--;
+	if (i < instructions->length && instructions->data[i] == other_instruction)
+	{
+		ft_memmove(
+			instructions->data + (i + 0),
+			instructions->data + (i + 1),
+			sizeof(long) * (instruction_index - i - 1)
+			);
+		ft_memmove(
+			instructions->data + (instruction_index - 1),
+			instructions->data + (instruction_index + 1),
+			sizeof(long) * (instructions->length - instruction_index - 1)
+			);
+		instructions->length -= 2;
+		return (1);
+	}
+	return (0);
+}
+
+static void	delete_redundant_pairs(t_ft_lvec *instructions)
+{
+	size_t	i;
+
+	i = instructions->length;
+	while (--i < instructions->length)
+	{
+		if (instructions->data[i] == StackRA)
+		{
+			if (delete_redundant_pair(instructions, StackRRA, i))
+				i--;
+		}
+		else if (instructions->data[i] == StackRRA)
+		{
+			if (delete_redundant_pair(instructions, StackRA, i))
+				i--;
+		}
+	}
+}
+
+static void	compress_pairs(t_ft_lvec *instructions)
+{
+	size_t	i;
+
+	i = instructions->length;
+	while (--i < instructions->length)
 	{
 		if (instructions->data[i] == StackRA)
 			compress_instructions_pair(instructions, StackRB, StackRR, i);
@@ -61,6 +112,11 @@ void	compress_instructions(t_ft_lvec *instructions)
 			compress_instructions_pair(instructions, StackSB, StackSS, i);
 		else if (instructions->data[i] == StackSB)
 			compress_instructions_pair(instructions, StackSA, StackSS, i);
-		i--;
 	}
+}
+
+void	compress_instructions(t_ft_lvec *instructions)
+{
+	delete_redundant_pairs(instructions);
+	compress_pairs(instructions);
 }
