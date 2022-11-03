@@ -18,6 +18,32 @@
 #include "stack.h"
 #include "sorting.h"
 
+void	display_instruction(t_stack_instruction instruction)
+{
+	if (instruction == StackRA)
+		ft_printf("ra\n");
+	else if (instruction == StackRB)
+		ft_printf("rb\n");
+	else if (instruction == StackRR)
+		ft_printf("rr\n");
+	else if (instruction == StackRRA)
+		ft_printf("rra\n");
+	else if (instruction == StackRRB)
+		ft_printf("rrb\n");
+	else if (instruction == StackRRR)
+		ft_printf("rrr\n");
+	else if (instruction == StackPA)
+		ft_printf("pa\n");
+	else if (instruction == StackPB)
+		ft_printf("pb\n");
+	else if (instruction == StackSA)
+		ft_printf("sa\n");
+	else if (instruction == StackSB)
+		ft_printf("sb\n");
+	else if (instruction == StackSS)
+		ft_printf("ss\n");
+}
+
 void	display_instructions(const t_ft_lvec *instructions)
 {
 	size_t	i;
@@ -25,22 +51,7 @@ void	display_instructions(const t_ft_lvec *instructions)
 	i = 0;
 	while (i < instructions->length)
 	{
-		if (instructions->data[i] == StackRA)
-			ft_printf("ra\n");
-		else if (instructions->data[i] == StackRB)
-			ft_printf("rb\n");
-		else if (instructions->data[i] == StackRRA)
-			ft_printf("rra\n");
-		else if (instructions->data[i] == StackRRB)
-			ft_printf("rrb\n");
-		else if (instructions->data[i] == StackPA)
-			ft_printf("pa\n");
-		else if (instructions->data[i] == StackPB)
-			ft_printf("pb\n");
-		else if (instructions->data[i] == StackRR)
-			ft_printf("rr\n");
-		else if (instructions->data[i] == StackRRR)
-			ft_printf("rrr\n");
+		display_instruction(instructions->data[i]);
 		i++;
 	}
 }
