@@ -13,6 +13,7 @@ SRCS			=	main.c \
 					sorting/steps/efficient_a_to_b/find_min_cost_elem.c \
 					sorting/steps/efficient_a_to_b/first_non_lis_elem_idx.c \
 					sorting/steps/efficient_b_to_a/compute_ra_count.c \
+					sorting/steps/efficient_b_to_a/rotate_a_to_match_b.c \
 					sorting/steps/in_place_sorts/switches_interleaving/beginning_switches_sort.c \
 					sorting/steps/in_place_sorts/switches_interleaving/next_switch_setup_sort.c \
 					sorting/steps/in_place_sorts/intertwined_switches_sort.c \
@@ -21,8 +22,10 @@ SRCS			=	main.c \
 					sorting/steps/in_place_sorts/rotations_compressions.c \
 					sorting/steps/in_place_sorts/vec_sorted_check.c \
 					sorting/steps/in_place_sort.c \
+					sorting/steps/pull_two_elems.c \
 					sorting/steps/push_from_sorted_b.c \
 					sorting/steps/push_to_sorted_b.c \
+					sorting/steps/push_two_elems.c \
 					sorting/sort_stack.c \
 					sorting/sorted_stack_lookup.c \
 					stack/instructions/pushes.c \

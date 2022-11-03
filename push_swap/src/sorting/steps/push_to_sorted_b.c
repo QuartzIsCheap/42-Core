@@ -74,11 +74,11 @@ int	push_non_lis_elems_to_b(
 		t_ft_lvec *instructions
 		)
 {
-	if (stack_a->length == lis->length || stack_a->length <= 5)
+	if (stack_a->length <= 5 + 2 || stack_a->length - lis->length < 3)
 		return (0);
 	if (first_push_to_b(stack_a, stack_b, lis, instructions) < 0)
 		return (-1);
-	while (stack_a->length != lis->length && stack_a->length > 5)
+	while (stack_a->length > 5 + 2 && stack_a->length - lis->length >= 3)
 	{
 		if (push_next_elem_to_b(stack_a, stack_b, lis, instructions) < 0)
 			return (-1);
