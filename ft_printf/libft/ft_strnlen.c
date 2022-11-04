@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
 #include "libft.h"
 
-void	ft_putstr_fd(const char *str, int fd)
+size_t	ft_strnlen(const char *str, size_t count)
 {
-	write(fd, str, ft_strlen(str));
+	size_t	len;
+
+	len = 0;
+	while (len < count && str[len] != '\0')
+		len++;
+	return (len);
 }

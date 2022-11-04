@@ -10,6 +10,7 @@ SRCS		=	libft/ft_printf.c \
 				libft/ft_memset.c \
 				libft/ft_min.c \
 				libft/ft_putstr_fd.c \
+				libft/ft_putstrn_fd.c \
 				libft/ft_strcat.c \
 				libft/ft_strchr.c \
 				libft/ft_strcpy.c \
@@ -17,6 +18,7 @@ SRCS		=	libft/ft_printf.c \
 				libft/ft_strjoin.c \
 				libft/ft_strlen.c \
 				libft/ft_strndup.c \
+				libft/ft_strnlen.c \
 				libft/ft_strsnjoin.c \
 				libft/ft_ulltoa_base.c
 OBJS		=	${SRCS:.c=.o}

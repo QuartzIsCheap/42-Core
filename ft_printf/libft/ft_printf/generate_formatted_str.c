@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   generate_formatted_str.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/04 23:10:34 by aronez            #+#    #+#             */
+/*   Updated: 2022/12/04 23:10:34 by aronez           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <malloc.h>
 
@@ -31,7 +42,12 @@ static void	free_strs(char **strs, size_t strs_count)
 	}
 }
 
-static int	parse_strs(const char *format, va_list args, char **strs, size_t strs_count)
+static int	parse_strs(
+		const char *format,
+		va_list args,
+		char **strs,
+		size_t strs_count
+		)
 {
 	size_t		strs_i;
 	const char	*prev_cc;
@@ -68,7 +84,7 @@ static char	**make_strs(const char *format, size_t strs_count, va_list args)
 	return (strs);
 }
 
-char	*parse_formatted_str(const char *format, va_list args)
+char	*translate_printf_format_string(const char *format, va_list args)
 {
 	size_t	strs_count;
 	char	**strs;
