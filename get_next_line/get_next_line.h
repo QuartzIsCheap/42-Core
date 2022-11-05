@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/03 16:40:45 by aronez            #+#    #+#             */
+/*   Updated: 2022/11/03 16:40:45 by aronez           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stddef.h>
 
@@ -8,7 +19,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-typedef struct	s_sub_buffer
+typedef struct s_sub_buffer
 {
 	char	buffer[BUFFER_SIZE];
 	size_t	start;
@@ -30,4 +41,4 @@ typedef struct	s_sub_buffer
  */
 char	*get_next_line(int fd);
 
-#endif //GET_NEXT_LINE
+#endif //GET_NEXT_LINE_H

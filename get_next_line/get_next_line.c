@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/03 16:40:45 by aronez            #+#    #+#             */
+/*   Updated: 2022/11/03 16:40:45 by aronez           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <malloc.h>
 #include <stddef.h>
@@ -6,17 +17,17 @@
 #include "get_next_line.h"
 
 char	*realloc_line(
-		char *line,
-		size_t current_length,
-		size_t additional_size
-);
+			char *line,
+			size_t current_length,
+			size_t additional_size
+			);
 char	*ft_strncpy(char *dest, const char *src, size_t count);
 char	*ft_strnchr(const char *str, int ch, size_t count);
-int	extract_from_buffer(
-		t_sub_buffer *sub_buffer,
-		char **line,
-		size_t *current_line_len
-		);
+int		extract_from_buffer(
+			t_sub_buffer *sub_buffer,
+			char **line,
+			size_t *current_line_len
+			);
 
 char	*get_next_line(int fd)
 {
