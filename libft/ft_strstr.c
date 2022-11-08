@@ -23,7 +23,7 @@ char	*ft_strstr(const char *str, const char *substr)
 		return ((char *)str);
 	str_len = ft_strlen(str);
 	i = 0;
-	while (i < str_len - substr_len)
+	while (i + substr_len < str_len)
 	{
 		if (ft_strncmp(str + i, substr, substr_len) == 0)
 			return ((char *)str + i);

@@ -22,12 +22,12 @@ char	*ft_strtrim(const char *str, const char *set)
 	char	*result;
 
 	i = 0;
-	while (ft_strchr(set, str[i]) != NULL)
+	while (i < ft_strlen(str) && ft_strchr(set, str[i]) != NULL)
 		i++;
 	j = ft_strlen(str) - 1;
-	while (ft_strchr(set, str[j]) != NULL)
+	while (j >= i && ft_strchr(set, str[j]) != NULL)
 		j--;
-	result_len = ft_smax(i - j, 0);
+	result_len = j - i + 1;
 	result = malloc(sizeof(char) * (result_len + 1));
 	if (result == NULL)
 		return (NULL);

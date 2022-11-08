@@ -14,16 +14,16 @@
 
 char	*ft_strnstr(const char *str, const char *substr, size_t len)
 {
-	size_t	substr_len;
+	size_t	sub_str_len;
 	size_t	i;
 
-	substr_len = ft_strlen(substr);
-	if (substr_len == 0)
+	sub_str_len = ft_strlen(substr);
+	if (sub_str_len == 0)
 		return ((char *)str);
 	i = 0;
-	while (i < len - substr_len)
+	while (i + sub_str_len <= ft_smin(len, ft_strlen(str)))
 	{
-		if (ft_strncmp(str + i, substr, substr_len) == 0)
+		if (ft_strncmp(str + i, substr, sub_str_len) == 0)
 			return ((char *)str + i);
 		i++;
 	}

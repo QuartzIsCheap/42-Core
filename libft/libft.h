@@ -313,9 +313,9 @@ char		*ft_strnstr(const char *str, const char *substr, size_t len);
 
 //! @brief Allocates and fills a null-terminated string containing the results
 //! of applying the passed function to the characters in str.
-char		*ft_strmapi(const char *str, char (*f)(size_t, char));
+char		*ft_strmapi(const char *str, char (*f)(unsigned int, char));
 //! @brief Calls the given function on each of the characters in str.
-void		ft_striteri(char *str, void (*f)(size_t, char *));
+void		ft_striteri(char *str, void (*f)(unsigned int, char *));
 
 /*////////////////////////////////////////////////////////////////////////////*/
 /*/                                                                          /*/

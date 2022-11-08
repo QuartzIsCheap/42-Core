@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <malloc.h>
+#include <stdint.h>
 
 #include "libft.h"
 
@@ -18,6 +19,8 @@ void	*ft_calloc(size_t num, size_t size)
 {
 	void	*result;
 
+	if (num == SIZE_MAX || size == SIZE_MAX)
+		return (NULL);
 	result = malloc(num * size);
 	if (result == NULL)
 		return (NULL);

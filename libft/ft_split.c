@@ -51,14 +51,14 @@ static int	invoke_on_substrs(
 	{
 		if (str[i] == c)
 		{
-			if (j - i > 0 && f(str + (j), j - i - 2, data) < 0)
+			if (j - i > 0 && f(str + j, i - j, data) < 0)
 				return (-1);
 			j = i + 1;
 		}
 		i++;
 	}
 	if (j - i > 0)
-		f(str + (j), j - i - 2, data);
+		f(str + (j), i - j, data);
 	return (0);
 }
 
