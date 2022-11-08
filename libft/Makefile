@@ -98,10 +98,4 @@ fclean:			clean
 
 re:				fclean all
 
-docs:			Doxyfile
-				doxygen Doxyfile
-				make -C docs/latex/
-				mv docs/latex/refman.pdf docs/Documentation.pdf
-				${RM} -r docs/latex
-
-.PHONY:			all clean fclean re docs
+.PHONY:			all clean fclean re
