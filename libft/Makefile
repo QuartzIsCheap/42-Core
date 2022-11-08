@@ -104,7 +104,4 @@ docs:			Doxyfile
 				mv docs/latex/refman.pdf docs/Documentation.pdf
 				${RM} -r docs/latex
 
-test:			all
-				${CC} ${CFLAGS} main.c -L./ -lft -o test
-
 .PHONY:			all clean fclean re docs
