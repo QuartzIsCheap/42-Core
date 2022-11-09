@@ -19,7 +19,7 @@ void	*ft_calloc(size_t num, size_t size)
 {
 	void	*result;
 
-	if (SIZE_MAX / size < num)
+	if (num == 0 || size == 0 || SIZE_MAX / size < num)
 		return (NULL);
 	result = malloc(num * size);
 	if (result == NULL)
