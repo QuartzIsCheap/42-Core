@@ -1,15 +1,16 @@
 NAME		=	libftprintf.a
 
 SRCS		=	libft/ft_printf.c \
+				libft/ft_printf/code_handling.c \
+				libft/ft_printf/display.c \
 				libft/ft_printf/generate_formatted_str.c \
-				libft/ft_printf/printf_code_handling.c \
 				libft/ft_abs.c \
 				libft/ft_calloc.c \
 				libft/ft_lltoa_base.c \
 				libft/ft_log.c \
 				libft/ft_memset.c \
 				libft/ft_min.c \
-				libft/ft_putstr_fd.c \
+				libft/ft_putchar_fd.c \
 				libft/ft_putstrn_fd.c \
 				libft/ft_strcat.c \
 				libft/ft_strchr.c \

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <malloc.h>
-#include <stdarg.h>
 #include <stddef.h>
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*translate_printf_format_string(const char *format, va_list args);
-void	display_string(const char *str);
-
-int	ft_printf(const char *format, ...)
+void	display_string(const char *str)
 {
-	va_list	args;
-	char	*formatted_str;
-	int		result;
+	size_t	prev_i;
+	size_t	i;
 
-	if (ft_strchr(format, '%') == NULL)
+	prev_i = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		result = (int)ft_smin(ft_strlen(format), INT_MAX);
-		ft_putstrn_fd(format, (size_t)result, 1);
-		return (result);
+		while (str[i] != '\0' && str[i] != -1)
+			i++;
+		if (i - prev_i > 0)
+			ft_putstrn_fd(str + prev_i, i - prev_i, 1);
+		if (str[i] == -1)
+		{
+			ft_putchar_fd(0, 1);
+			i++;
+			prev_i = i;
+		}
 	}
-	va_start(args, format);
-	formatted_str = translate_printf_format_string(format, args);
-	va_end(args);
-	if (formatted_str == NULL)
-		return (0);
-	display_string(formatted_str);
-	result = (int)ft_smin(ft_strlen(formatted_str), INT_MAX);
-	return (free(formatted_str), result);
 }

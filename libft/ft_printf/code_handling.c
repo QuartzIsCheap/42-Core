@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_code_handling.c                             :+:      :+:    :+:   */
+/*   code_handling.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -18,12 +18,20 @@
 
 static char	*handle_char(char code, va_list args)
 {
-	char	c;
+	char	*str;
 
-	c = '%';
+	str = malloc(sizeof(char) * 2);
+	if (str == NULL)
+		return (NULL);
+	str[0] = '%';
 	if (code == 'c')
-		c = va_arg(args, int);
-	return (ft_strndup(&c, 1));
+	{
+		str[0] = va_arg(args, int);
+		if (str[0] == 0)
+			str[0] = -1;
+	}
+	str[1] = '\0';
+	return (str);
 }
 
 static char	*handle_pointer(void *p)
@@ -41,12 +49,17 @@ static char	*handle_pointer(void *p)
 
 char	*handle_printf_code(char code, va_list args)
 {
-	const char	*base;
+	const char	*tmp;
 
 	if (code == '%' || code == 'c')
 		return (handle_char(code, args));
 	else if (code == 's')
-		return (ft_strdup(va_arg(args, const char *)));
+	{
+		tmp = va_arg(args, const char *);
+		if (tmp == NULL)
+			return (ft_strdup("(null)"));
+		return (ft_strdup(tmp));
+	}
 	else if (code == 'p')
 		return (handle_pointer(va_arg(args, void *)));
 	else if (code == 'd' || code == 'i')
@@ -54,11 +67,11 @@ char	*handle_printf_code(char code, va_list args)
 	else
 	{
 		if (code == 'u')
-			base = "0123456789";
+			tmp = "0123456789";
 		if (code == 'x')
-			base = "0123456789abcdef";
+			tmp = "0123456789abcdef";
 		if (code == 'X')
-			base = "0123456789ABCDEF";
-		return (ft_lltoa_base(va_arg(args, unsigned int), base));
+			tmp = "0123456789ABCDEF";
+		return (ft_lltoa_base(va_arg(args, unsigned int), tmp));
 	}
 }

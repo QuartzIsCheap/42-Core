@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_blank.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aronez <aronez@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -18,6 +18,7 @@
 #include "libft.h"
 
 char	*translate_printf_format_string(const char *format, va_list args);
+void	display_string(const char *str);
 
 int	ft_printf(const char *format, ...)
 {
@@ -36,7 +37,7 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	if (formatted_str == NULL)
 		return (0);
-	ft_putstr_fd(formatted_str, 1);
+	display_string(formatted_str);
 	result = (int)ft_smin(ft_strlen(formatted_str), INT_MAX);
 	return (free(formatted_str), result);
 }
