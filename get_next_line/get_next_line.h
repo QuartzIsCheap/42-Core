@@ -22,7 +22,7 @@
 
 typedef struct s_sub_buffer
 {
-	char	buffer[BUFFER_SIZE];
+	char	*buffer;
 	size_t	start;
 	ssize_t	buffer_size;
 }	t_sub_buffer;
