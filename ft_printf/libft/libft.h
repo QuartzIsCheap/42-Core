@@ -25,7 +25,6 @@ size_t		ft_strlen(const char *str);
 size_t		ft_strnlen(const char *str, size_t count);
 char		*ft_strdup(const char *src);
 char		*ft_strndup(const char *src, size_t count);
-char		*ft_strsnjoin(const char **strs, size_t count);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstrn_fd(const char *str, size_t count, int fd);
 char		*ft_strjoin(const char *s1, const char *s2);

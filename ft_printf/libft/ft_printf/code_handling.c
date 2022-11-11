@@ -15,39 +15,45 @@
 #include <malloc.h>
 
 #include "../libft.h"
+#include "ft_string.h"
 
-static char	*handle_char(char code, va_list args)
+static t_ft_string	handle_char(char code, va_list args)
 {
-	char	*str;
+	t_ft_string	str;
 
-	str = malloc(sizeof(char) * 2);
-	if (str == NULL)
-		return (NULL);
-	str[0] = '%';
+	str.len = 1;
+	str.str = malloc(sizeof(char) * (str.len + 1));
+	if (str.str == NULL)
+		return ((t_ft_string){NULL, 0});
+	str.str[0] = '%';
 	if (code == 'c')
-	{
-		str[0] = va_arg(args, int);
-		if (str[0] == 0)
-			str[0] = -1;
-	}
-	str[1] = '\0';
+		str.str[0] = va_arg(args, int);
+	str.str[1] = '\0';
 	return (str);
 }
 
-static char	*handle_pointer(void *p)
+static t_ft_string	handle_pointer(void *p)
 {
-	char	*hexa_ptr_addr;
-	char	*result;
+	char		*hexa_ptr_addr;
+	t_ft_string	result;
 
 	if (p == NULL)
-		return (ft_strdup("(nil)"));
+		return ((t_ft_string){ft_strdup("(nil)"), ft_strlen("(nil)")});
 	hexa_ptr_addr = ft_ulltoa_base((uintptr_t)p, "0123456789abcdef");
-	result = ft_strjoin("0x", hexa_ptr_addr);
+	result.str = ft_strjoin("0x", hexa_ptr_addr);
+	result.len = ft_strlen(result.str);
 	free(hexa_ptr_addr);
 	return (result);
 }
+static t_ft_string	handle_integer_base(long long l, const char *base)
+{
+	char	*tmp;
 
-char	*handle_printf_code(char code, va_list args)
+	tmp = ft_lltoa_base(l, base);
+	return ((t_ft_string){tmp, ft_strlen(tmp)});
+}
+
+t_ft_string	handle_printf_code(char code, va_list args)
 {
 	const char	*tmp;
 
@@ -57,13 +63,13 @@ char	*handle_printf_code(char code, va_list args)
 	{
 		tmp = va_arg(args, const char *);
 		if (tmp == NULL)
-			return (ft_strdup("(null)"));
-		return (ft_strdup(tmp));
+			return ((t_ft_string){ft_strdup("(null)"), ft_strlen("(null)")});
+		return ((t_ft_string){ft_strdup(tmp), ft_strlen(tmp)});
 	}
 	else if (code == 'p')
 		return (handle_pointer(va_arg(args, void *)));
 	else if (code == 'd' || code == 'i')
-		return (ft_lltoa_base(va_arg(args, int), "0123456789"));
+		return (handle_integer_base(va_arg(args, int), "0123456789"));
 	else
 	{
 		if (code == 'u')
@@ -72,6 +78,6 @@ char	*handle_printf_code(char code, va_list args)
 			tmp = "0123456789abcdef";
 		if (code == 'X')
 			tmp = "0123456789ABCDEF";
-		return (ft_lltoa_base(va_arg(args, unsigned int), tmp));
+		return (handle_integer_base(va_arg(args, unsigned int), tmp));
 	}
 }

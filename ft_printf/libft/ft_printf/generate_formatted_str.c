@@ -13,8 +13,9 @@
 #include <malloc.h>
 
 #include "../libft.h"
+#include "ft_string.h"
 
-char	*handle_printf_code(char code, va_list args);
+t_ft_string	handle_printf_code(char code, va_list args);
 
 static size_t	count_strs(const char *format_str)
 {
@@ -30,14 +31,14 @@ static size_t	count_strs(const char *format_str)
 	return (count + (count + 1));
 }
 
-static void	free_strs(char **strs, size_t strs_count)
+static void	free_strs(t_ft_string *strs, size_t strs_count)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < strs_count)
 	{
-		free(strs[i]);
+		free(strs[i].str);
 		i++;
 	}
 }
@@ -45,7 +46,7 @@ static void	free_strs(char **strs, size_t strs_count)
 static int	parse_strs(
 		const char *format,
 		va_list args,
-		char **strs,
+		t_ft_string *strs,
 		size_t strs_count
 		)
 {
@@ -58,25 +59,31 @@ static int	parse_strs(
 	cc = ft_strchr(prev_cc, '%');
 	while (cc != NULL)
 	{
-		strs[strs_i] = ft_strndup(prev_cc, (size_t)(cc - prev_cc));
+		strs[strs_i].str = ft_strndup(prev_cc,(size_t)(cc - prev_cc));
+		strs[strs_i].len = (size_t)(cc - prev_cc);
 		strs[strs_i + 1] = handle_printf_code(*(cc + 1), args);
-		if (strs[strs_i] == NULL || strs[strs_i + 1] == NULL)
+		if (strs[strs_i].str == NULL || strs[strs_i + 1].str == NULL)
 			return (free_strs(strs, strs_count), -1);
 		strs_i += 2;
 		prev_cc = cc + 2;
 		cc = ft_strchr(prev_cc, '%');
 	}
-	strs[strs_i] = ft_strdup(prev_cc);
-	if (strs[strs_i] == NULL)
+	strs[strs_i].str = ft_strdup(prev_cc);
+	if (strs[strs_i].str == NULL)
 		return (free_strs(strs, strs_count), -1);
+	strs[strs_i].len = ft_strlen(strs[strs_i].str);
 	return (0);
 }
 
-static char	**make_strs(const char *format, size_t strs_count, va_list args)
+static t_ft_string 	*make_strs(
+		const char *format,
+		size_t strs_count,
+		va_list args
+		)
 {
-	char	**strs;
+	t_ft_string *strs;
 
-	strs = ft_calloc(strs_count, sizeof(char *));
+	strs = ft_calloc(strs_count, sizeof(t_ft_string));
 	if (strs == NULL)
 		return (NULL);
 	if (parse_strs(format, args, strs, strs_count) < 0)
@@ -84,17 +91,17 @@ static char	**make_strs(const char *format, size_t strs_count, va_list args)
 	return (strs);
 }
 
-char	*translate_printf_format_string(const char *format, va_list args)
+t_ft_string	translate_printf_format_string(const char *format, va_list args)
 {
-	size_t	strs_count;
-	char	**strs;
-	char	*formatted_str;
+	size_t			strs_count;
+	t_ft_string 	*strs;
+	t_ft_string		formatted_str;
 
 	strs_count = count_strs(format);
 	strs = make_strs(format, strs_count, args);
 	if (strs == NULL)
-		return (NULL);
-	formatted_str = ft_strsnjoin((const char **)strs, strs_count);
+		return ((t_ft_string){NULL, 0});
+	formatted_str = ft_stringnjoin(strs, strs_count);
 	free_strs(strs, strs_count);
 	free(strs);
 	return (formatted_str);
