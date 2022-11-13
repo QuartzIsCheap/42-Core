@@ -39,7 +39,7 @@ SRCS		=	ft_abs.c \
 				ft_min.c \
 				ft_printf.c \
 				ft_printf/code_handling.c \
-				ft_printf/display.c \
+				ft_printf/ft_string.c \
 				ft_printf/generate_formatted_str.c \
 				ft_putchar_fd.c \
 				ft_putendl_fd.c \

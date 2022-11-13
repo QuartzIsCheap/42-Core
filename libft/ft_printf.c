@@ -14,17 +14,18 @@
 #include <malloc.h>
 #include <stdarg.h>
 #include <stddef.h>
+#include <unistd.h>
 
 #include "libft.h"
+#include "ft_printf/ft_string.h"
 
-char	*translate_printf_format_string(const char *format, va_list args);
-void	display_string(const char *str);
+t_ft_string	translate_printf_format_string(const char *format, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	char	*formatted_str;
-	int		result;
+	va_list		args;
+	t_ft_string	formatted_str;
+	int			result;
 
 	if (ft_strchr(format, '%') == NULL)
 	{
@@ -35,9 +36,9 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	formatted_str = translate_printf_format_string(format, args);
 	va_end(args);
-	if (formatted_str == NULL)
+	if (formatted_str.str == NULL)
 		return (0);
-	display_string(formatted_str);
-	result = (int)ft_smin(ft_strlen(formatted_str), INT_MAX);
-	return (free(formatted_str), result);
+	write(1, formatted_str.str, formatted_str.len);
+	result = (int)ft_smin(formatted_str.len, INT_MAX);
+	return (free(formatted_str.str), result);
 }
