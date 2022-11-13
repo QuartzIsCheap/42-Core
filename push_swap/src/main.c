@@ -65,7 +65,7 @@ int	main(int argc, char *argv[])
 	if (parse_args_into_stack(argc, argv, &stack_a) < 0)
 		return (EXIT_FAILURE);
 	if (stack_a.length < 2)
-		return (EXIT_SUCCESS);
+		return (ft_lvec_free(&stack_a), EXIT_SUCCESS);
 	if (find_rotated_longest_lis(&stack_a, &lis) < 0)
 		return (ft_lvec_free(&stack_a), EXIT_FAILURE);
 	if (ft_lvec_new(&instructions) < 0)
