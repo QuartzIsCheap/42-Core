@@ -8,7 +8,7 @@ OBJS			=	${SRCS:%.c=${SRCS_DIR}/%.o}
 LIBFTDIR		=	libft
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror
 
 RM				=	rm -f
 
