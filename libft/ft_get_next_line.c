@@ -89,7 +89,7 @@ static int	extract_from_buffer(
 		line_break++;
 	additional_size = (line_break - sub_buffer->buffer) - sub_buffer->start;
 	if (extend_line(line, *current_line_len, additional_size, buffer) < 0)
-		return (1);
+		return (free(sub_buffer->buffer), 1);
 	*current_line_len += additional_size;
 	sub_buffer->start = line_break - sub_buffer->buffer;
 	return (return_value);
