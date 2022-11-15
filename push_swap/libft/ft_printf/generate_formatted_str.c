@@ -59,7 +59,7 @@ static int	parse_strs(
 	cc = ft_strchr(prev_cc, '%');
 	while (cc != NULL)
 	{
-		strs[strs_i].str = ft_strndup(prev_cc,(size_t)(cc - prev_cc));
+		strs[strs_i].str = ft_strndup(prev_cc, (size_t)(cc - prev_cc));
 		strs[strs_i].len = (size_t)(cc - prev_cc);
 		strs[strs_i + 1] = handle_printf_code(*(cc + 1), args);
 		if (strs[strs_i].str == NULL || strs[strs_i + 1].str == NULL)
@@ -75,13 +75,13 @@ static int	parse_strs(
 	return (0);
 }
 
-static t_ft_string 	*make_strs(
+static t_ft_string	*make_strs(
 		const char *format,
 		size_t strs_count,
 		va_list args
 		)
 {
-	t_ft_string *strs;
+	t_ft_string	*strs;
 
 	strs = ft_calloc(strs_count, sizeof(t_ft_string));
 	if (strs == NULL)
@@ -94,7 +94,7 @@ static t_ft_string 	*make_strs(
 t_ft_string	translate_printf_format_string(const char *format, va_list args)
 {
 	size_t			strs_count;
-	t_ft_string 	*strs;
+	t_ft_string		*strs;
 	t_ft_string		formatted_str;
 
 	strs_count = count_strs(format);

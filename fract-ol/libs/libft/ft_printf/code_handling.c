@@ -40,17 +40,24 @@ static t_ft_string	handle_pointer(void *p)
 	if (p == NULL)
 		return ((t_ft_string){ft_strdup("(nil)"), ft_strlen("(nil)")});
 	hexa_ptr_addr = ft_ulltoa_base((uintptr_t)p, "0123456789abcdef");
+	if (hexa_ptr_addr == NULL)
+		return ((t_ft_string){NULL, 0});
 	result.str = ft_strjoin("0x", hexa_ptr_addr);
+	if (result.str == NULL)
+		return (free(hexa_ptr_addr), (t_ft_string){NULL, 0});
 	result.len = ft_strlen(result.str);
 	free(hexa_ptr_addr);
 	return (result);
 }
+
 static t_ft_string	handle_integer_base(long long l, const char *base)
 {
-	char	*tmp;
+	char	*integer_str;
 
-	tmp = ft_lltoa_base(l, base);
-	return ((t_ft_string){tmp, ft_strlen(tmp)});
+	integer_str = ft_lltoa_base(l, base);
+	if (integer_str == NULL)
+		return ((t_ft_string){NULL, 0});
+	return ((t_ft_string){integer_str, ft_strlen(integer_str)});
 }
 
 t_ft_string	handle_printf_code(char code, va_list args)

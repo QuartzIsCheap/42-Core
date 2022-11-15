@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+#ifndef FT_STRING_H
+# define FT_STRING_H
 
 typedef struct s_ft_string
 {
@@ -21,4 +21,4 @@ typedef struct s_ft_string
 
 t_ft_string	ft_stringnjoin(const t_ft_string *strings, size_t count);
 
-#endif //STRING_H
+#endif //FT_STRING_H
