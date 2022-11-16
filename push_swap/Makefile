@@ -68,6 +68,7 @@ ${TESTER}:
 					make -C tester tester
 
 test:				${NAME} ${TESTER}
+					./${NAME}
 					ARG=""; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="1"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG
 					ARG="1 2"; ./${NAME} $$ARG | wc -l; ./${NAME} $$ARG | ./${TESTER} $$ARG

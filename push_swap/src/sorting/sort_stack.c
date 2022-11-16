@@ -21,7 +21,7 @@ int	sort_stack(t_ft_lvec *stack_a, t_ft_svec *lis, t_ft_lvec *instructions)
 	t_ft_lvec	stack_b;
 
 	if (ft_lvec_with_capacity(&stack_b, stack_a->length) < 0)
-		return (-1);
+		return (ft_lvec_free(instructions), -1);
 	if (push_non_lis_elems_to_b(stack_a, &stack_b, lis, instructions) < 0)
 		return (ft_lvec_free(&stack_b), -1);
 	if (push_two_elems_to_b(stack_a, &stack_b, lis, instructions) < 0)

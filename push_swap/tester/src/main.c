@@ -76,6 +76,8 @@ int	main(int argc, char *argv[])
 	t_ft_lvec	stack_a;
 	t_ft_lvec	stack_b;
 
+	if (argc == 1)
+		return (0);
 	if (parse_args_into_stack(argc, argv, &stack_a) < 0)
 		return (-1);
 	if (stack_a.length < 2)

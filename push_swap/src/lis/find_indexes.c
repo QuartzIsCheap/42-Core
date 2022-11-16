@@ -97,7 +97,8 @@ int	find_lis_indexes(const t_ft_lvec *vec, t_ft_svec *lis)
 		return (ft_svec_free(&predecessors), -1);
 	max_length = generate_predecessors(vec, &predecessors, &min_val_indexes);
 	if (init_svec_with_length(lis, max_length) < 0)
-		return (ft_svec_free(&predecessors), ft_svec_free(&predecessors), -1);
+		return (ft_svec_free(&predecessors),
+			ft_svec_free(&min_val_indexes), -1);
 	reconstruct_lis(max_length, &predecessors, &min_val_indexes, lis);
 	return (ft_svec_free(&predecessors), ft_svec_free(&min_val_indexes), 0);
 }

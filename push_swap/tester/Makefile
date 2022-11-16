@@ -10,11 +10,11 @@ SRCS			=	main.c \
 
 OBJS			=	${SRCS:%.c=${SRCS_DIR}/%.o}
 
-LIBSDIR			=	../dependencies/libs
-INCLUDESDIR		=	../dependencies/includes
+LIBSDIR			=	../libft
+INCLUDESDIR		=	../libft
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror
 
 RM				=	rm -f
 

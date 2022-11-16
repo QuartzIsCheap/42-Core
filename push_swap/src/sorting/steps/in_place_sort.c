@@ -61,10 +61,9 @@ int	sort_in_place(t_ft_lvec *stack_a, t_ft_lvec *instructions)
 	t_ft_lvec	sa_ra;
 
 	if (ft_lvec_clone(stack_a, &wrk_a) < 0)
-		return (ft_lvec_free(stack_a), ft_lvec_free(instructions), -1);
+		return (ft_lvec_free(instructions), -1);
 	if (ft_lvec_new(&sa_ra) < 0)
-		return (ft_lvec_free(&wrk_a), ft_lvec_free(stack_a),
-			ft_lvec_free(instructions), -1);
+		return (ft_lvec_free(&wrk_a), ft_lvec_free(instructions), -1);
 	if (find_fastest_sort(stack_a, &wrk_a, &sa_ra) < 0)
 		return (ft_lvec_free(instructions), -1);
 	compress_rotates(&sa_ra, stack_a->length);
@@ -72,7 +71,6 @@ int	sort_in_place(t_ft_lvec *stack_a, t_ft_lvec *instructions)
 		return (ft_lvec_free(&sa_ra), ft_lvec_free(&wrk_a),
 			ft_lvec_free(instructions), -1);
 	if (append_instructions(instructions, &sa_ra) < 0)
-		return (ft_lvec_free(&sa_ra), ft_lvec_free(&wrk_a),
-			ft_lvec_free(stack_a), -1);
+		return (ft_lvec_free(&sa_ra), ft_lvec_free(&wrk_a), -1);
 	return (ft_lvec_free(&sa_ra), ft_lvec_free(&wrk_a), 0);
 }

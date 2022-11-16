@@ -42,7 +42,8 @@ static int	generate_lis_candidates(
 	while (i < vec->length)
 	{
 		if (find_lis_indexes(&rotated_vec, lis_candidates + i) < 0)
-			return (free_candidates(lis_candidates, i), -1);
+			return (ft_lvec_free(&rotated_vec),
+				free_candidates(lis_candidates, i), -1);
 		stack_ra(&rotated_vec, NULL);
 		i++;
 	}

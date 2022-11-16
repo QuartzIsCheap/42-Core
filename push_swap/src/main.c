@@ -62,6 +62,8 @@ int	main(int argc, char *argv[])
 	t_ft_svec	lis;
 	t_ft_lvec	instructions;
 
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	if (parse_args_into_stack(argc, argv, &stack_a) < 0)
 		return (EXIT_FAILURE);
 	if (stack_a.length < 2)
