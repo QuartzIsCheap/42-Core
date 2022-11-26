@@ -66,7 +66,6 @@ char	**ft_split(const char *str, char c)
 {
 	size_t	strs_count;
 	char	**strs;
-	size_t	i;
 
 	strs_count = 0;
 	if (invoke_on_substrs(str, c, &str_counter, &strs_count) < 0)
