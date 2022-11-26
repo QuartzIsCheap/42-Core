@@ -7,6 +7,7 @@ SRCS		=	ft_abs.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_fdprintf.c \
+				ft_free_strs.c \
 				ft_get_next_line.c \
 				ft_isalnum.c \
 				ft_isalpha.c \

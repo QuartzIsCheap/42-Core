@@ -76,13 +76,7 @@ char	**ft_split(const char *str, char c)
 		return (NULL);
 	if (invoke_on_substrs(str, c, &str_maker, strs) < 0)
 	{
-		i = 0;
-		while (strs[i] != NULL)
-		{
-			free(strs[i]);
-			i++;
-		}
-		free(strs);
+		ft_free_strs(strs);
 		return (NULL);
 	}
 	return (strs);

@@ -353,6 +353,9 @@ char		*ft_strtrim(const char *str, const char *set);
 //! delimited by the character c and the edges of str. Returns NULL if the
 //! allocation fails.
 char		**ft_split(const char *str, char c);
+//! @brief Frees all pointers in the pointer array until a NULL pointer is
+//! encountered, then frees the pointer array itself.
+void		ft_free_strs(char **strs);
 
 /*////////////////////////////////////////////////////////////////////////////*/
 /*/                                                                          /*/
