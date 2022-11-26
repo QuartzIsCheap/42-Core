@@ -15,10 +15,13 @@
 
 void	ft_free_strs(char **strs)
 {
-	while (*strs != NULL)
+	size_t	i;
+
+	i = 0;
+	while (strs[i] != NULL)
 	{
-		free(*strs);
-		(*strs)++;
+		free(strs[i]);
+		i++;
 	}
 	free(strs);
 }
